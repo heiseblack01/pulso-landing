@@ -464,6 +464,158 @@ section { padding-block: var(--pad-y); }
 
 /* ─── Focus ───────────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* ─── Phone / WhatsApp mockup ─────────────────────────────────── */
+.hero__mock-wrap {
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: var(--ink);
+}
+.mock-phone {
+  width: clamp(210px, 55%, 264px);
+  background: #111;
+  border-radius: 32px;
+  border: 1px solid rgba(255,255,255,.07);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.6),
+    0 40px 100px rgba(0,0,0,.75),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  flex-shrink: 0;
+}
+.mock-wa-header {
+  background: #181818;
+  padding: .75rem 1rem;
+  display: flex; align-items: center; gap: .625rem;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.mock-wa-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.mock-wa-info { flex: 1; display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+.mock-wa-name { font-size: .6875rem; font-weight: 600; color: var(--bg); line-height: 1; letter-spacing: -.01em; }
+.mock-wa-sub  { font-size: .5rem; color: #25D366; line-height: 1; }
+.mock-wa-tag  {
+  font-size: .45rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--red);
+  border: 1px solid rgba(200,40,30,.3); padding: .2rem .4rem; line-height: 1;
+}
+.mock-wa-chat {
+  background: #0C0C0C;
+  padding: .875rem .75rem;
+  display: flex; flex-direction: column; gap: .45rem;
+}
+.mock-wa-date {
+  font-size: .45rem; letter-spacing: .1em; text-transform: uppercase;
+  color: #3A3A3A; text-align: center; padding-bottom: .2rem;
+}
+.mock-bubble {
+  max-width: 82%; padding: .45rem .6rem;
+  border-radius: 10px; font-size: .6rem; line-height: 1.45; position: relative;
+}
+.mock-bubble--out {
+  background: #1B2B1B; color: #C8DCC8;
+  align-self: flex-end; border-bottom-right-radius: 2px;
+}
+.mock-bubble--in {
+  background: #1A1A1A; color: #C8C8C6;
+  align-self: flex-start; border-bottom-left-radius: 2px;
+  border: 1px solid #242424;
+}
+.mock-bubble--convert { background: #161E16; border-color: rgba(37,211,102,.12); color: #C8DCC8; }
+.mock-time {
+  display: block; font-size: .43rem; color: #484848;
+  margin-top: .25rem; text-align: right;
+}
+.mock-bubble--in .mock-time { text-align: left; }
+.mock-convert-tag {
+  display: flex; align-items: center; gap: .4rem;
+  font-size: .45rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: #25D366;
+  padding: .5rem 0 .1rem; border-top: 1px solid #181818; margin-top: .15rem;
+}
+.mock-convert-dot { width: 5px; height: 5px; border-radius: 50%; background: #25D366; flex-shrink: 0; }
+
+/* ─── Meta Ads results card ────────────────────────────────────── */
+.mock-ads-card {
+  background: #111; border: 1px solid #1E1E1E;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: flex; flex-direction: column; gap: 1rem;
+  height: 100%;
+}
+.mock-ads-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.mock-ads-platform {
+  font-size: .5625rem; letter-spacing: .1em;
+  text-transform: uppercase; color: #444; font-weight: 600;
+}
+.mock-ads-live {
+  font-size: .5rem; letter-spacing: .08em;
+  text-transform: uppercase; color: #25D366; font-weight: 700;
+}
+.mock-ads-big {
+  font-size: clamp(3rem, 7vw + 1rem, 5.5rem);
+  font-weight: 800; letter-spacing: -.05em; line-height: .9; color: var(--red);
+}
+.mock-ads-big-lbl {
+  font-size: .5625rem; letter-spacing: .1em; text-transform: uppercase;
+  color: #3A3A3A; font-weight: 600; margin-top: .5rem;
+}
+.mock-ads-sep { height: 1px; background: #1A1A1A; }
+.mock-ads-metrics {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: .75rem;
+}
+.mock-ads-metric { display: flex; flex-direction: column; gap: .3rem; padding-top: .75rem; border-top: 1px solid #1E1E1E; }
+.mock-ads-metric__val {
+  font-size: clamp(.875rem, 1.5vw + .5rem, 1.125rem);
+  font-weight: 700; letter-spacing: -.02em; color: var(--bg); line-height: 1;
+}
+.mock-ads-metric__lbl {
+  font-size: .45rem; letter-spacing: .1em;
+  text-transform: uppercase; color: #444; font-weight: 600;
+}
+
+/* ─── Founder section ──────────────────────────────────────────── */
+.founder { padding-block: var(--pad-y); }
+.founder__grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+@media (min-width: 760px) {
+  .founder__grid { grid-template-columns: .8fr 1.4fr; }
+}
+.founder__photo {
+  aspect-ratio: 3/4; overflow: hidden; position: relative;
+  background: var(--bg2);
+}
+.founder__photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.founder__photo-ph {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .75rem; color: var(--muted); min-height: 320px;
+}
+.founder__photo-ph svg { width: 2rem; height: 2rem; opacity: .3; }
+.founder__photo-ph span {
+  font-size: .5625rem; letter-spacing: .14em;
+  text-transform: uppercase; font-weight: 600; color: var(--muted);
+}
+.founder__copy { display: flex; flex-direction: column; gap: clamp(1rem, 2vw, 1.5rem); }
+.founder__name { font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.05; }
+.founder__role { font-size: var(--fs-small); color: var(--muted); letter-spacing: .02em; }
+.founder__bio { color: var(--muted); max-width: 50ch; line-height: 1.65; font-size: var(--fs-small); }
+.founder__quote {
+  border-left: 2px solid var(--red);
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1.0625rem, 1.5vw + .8rem, 1.375rem);
+  font-weight: 500; line-height: 1.35; letter-spacing: -.015em;
+  color: var(--ink); font-style: normal; margin: 0;
+}
 </style>
 </head>
 <body>
@@ -546,13 +698,41 @@ section { padding-block: var(--pad-y); }
         </div>
       </div>
 
-      <!-- Imagem -->
-      <div class="ph hero__img">
-        <svg class="ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-          <circle cx="12" cy="13" r="4"/>
-        </svg>
-        <span class="ph__lbl">Foto do açougue</span>
+      <!-- Mockup CRM WhatsApp -->
+      <div class="hero__img hero__mock-wrap" aria-hidden="true">
+        <div class="mock-phone">
+          <div class="mock-wa-header">
+            <div class="mock-wa-avatar">M</div>
+            <div class="mock-wa-info">
+              <span class="mock-wa-name">Marcos · cliente</span>
+              <span class="mock-wa-sub">Pulso CRM · automação ativa</span>
+            </div>
+            <span class="mock-wa-tag">CRM</span>
+          </div>
+          <div class="mock-wa-chat">
+            <div class="mock-wa-date">hoje, 09:12</div>
+            <div class="mock-bubble mock-bubble--out">
+              Oi Marcos 👋 semana passada você pediu a picanha — chegou no ponto?
+              <span class="mock-time">09:12 ✓✓</span>
+            </div>
+            <div class="mock-bubble mock-bubble--in">
+              Chegou perfeita! Tô querendo mais
+              <span class="mock-time">09:17</span>
+            </div>
+            <div class="mock-bubble mock-bubble--out">
+              Ótimo! Essa semana tem kit churrasco completo com 15% off — entrego hoje até 19h.
+              <span class="mock-time">09:17 ✓✓</span>
+            </div>
+            <div class="mock-bubble mock-bubble--in mock-bubble--convert">
+              Quero! Manda o link 🔥
+              <span class="mock-time">09:18</span>
+            </div>
+            <div class="mock-convert-tag">
+              <span class="mock-convert-dot"></span>
+              pedido convertido via CRM
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -643,12 +823,30 @@ section { padding-block: var(--pad-y); }
       </div>
 
       <div class="r" style="--d:120ms">
-        <div class="ph prova__img">
-          <svg class="ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-            <circle cx="12" cy="13" r="4"/>
-          </svg>
-          <span class="ph__lbl">Foto do açougue parceiro</span>
+        <div class="mock-ads-card" aria-hidden="true">
+          <div class="mock-ads-header">
+            <span class="mock-ads-platform">Meta Ads · campanha ativa</span>
+            <span class="mock-ads-live">● ao vivo</span>
+          </div>
+          <div>
+            <div class="mock-ads-big">+38%</div>
+            <div class="mock-ads-big-lbl">pedidos · mês 1 · açougue SP</div>
+          </div>
+          <div class="mock-ads-sep"></div>
+          <div class="mock-ads-metrics">
+            <div class="mock-ads-metric">
+              <span class="mock-ads-metric__val">47</span>
+              <span class="mock-ads-metric__lbl">conversões</span>
+            </div>
+            <div class="mock-ads-metric">
+              <span class="mock-ads-metric__val">R$8,40</span>
+              <span class="mock-ads-metric__lbl">custo/pedido</span>
+            </div>
+            <div class="mock-ads-metric">
+              <span class="mock-ads-metric__val">4,1×</span>
+              <span class="mock-ads-metric__lbl">ROAS</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -685,6 +883,42 @@ section { padding-block: var(--pad-y); }
         </span>
         <p class="stat-cell__lbl">Pra começar. Você só paga se decidir ir adiante.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FUNDADOR ═════════════════════ -->
+<section class="founder light2">
+  <div class="wrap">
+    <div class="founder__grid">
+
+      <!-- Foto — substitua por <img src="sua-foto.jpg" alt="[Nome]"> -->
+      <div class="founder__photo r">
+        <div class="founder__photo-ph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>foto do fundador</span>
+        </div>
+      </div>
+
+      <div class="founder__copy">
+        <span class="label r">QUEM FAZ</span>
+        <div class="r" style="--d:60ms">
+          <p class="founder__name"><!-- Seu nome aqui --></p>
+          <p class="founder__role">Fundador · Pulso</p>
+        </div>
+        <p class="founder__bio r" style="--d:120ms">
+          <!-- Sua bio em 2–3 linhas: de onde vem, por que açougue, o que aprendeu.
+               Ex: "Cresci vendo meu pai vender carne. Aprendi marketing em agências grandes
+               e percebi que os donos de açougue são os clientes que mais precisam — e menos
+               recebem — de um trabalho honesto." -->
+        </p>
+        <blockquote class="founder__quote r" style="--d:180ms">
+          <!-- Sua frase-chave. Ex: "Marketing que não gera pedido não é marketing." -->
+        </blockquote>
+      </div>
+
     </div>
   </div>
 </section>
