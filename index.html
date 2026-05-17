@@ -468,8 +468,60 @@ section { padding-block: var(--pad-y); }
 /* ─── Phone / WhatsApp mockup ─────────────────────────────────── */
 .hero__mock-wrap {
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden; background: var(--ink);
+  overflow: hidden; background: var(--ink); position: relative;
 }
+.mock-scene { position: relative; flex-shrink: 0; }
+
+/* Floating badge */
+.hero-float-badge {
+  position: absolute;
+  bottom: 1.75rem; left: -1.75rem;
+  background: var(--bg); color: var(--ink);
+  padding: .75rem 1rem;
+  display: flex; align-items: center; gap: .75rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.06);
+  animation: badge-float 4s ease-in-out infinite;
+  z-index: 10; pointer-events: none; white-space: nowrap;
+}
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0) rotate(-.4deg); }
+  50%       { transform: translateY(-8px) rotate(.4deg); }
+}
+.hero-float-badge__icon {
+  width: 34px; height: 34px;
+  background: rgba(200,40,30,.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 1.05rem;
+}
+.hero-float-badge__val {
+  font-size: 1.25rem; font-weight: 800;
+  letter-spacing: -.04em; line-height: 1; color: var(--red);
+}
+.hero-float-badge__lbl {
+  font-size: .48rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); font-weight: 600; margin-top: .15rem;
+}
+
+/* Typing indicator */
+.mock-typing {
+  display: none; align-items: center; gap: 3px;
+  padding: .45rem .65rem;
+  background: #1A1A1A; border: 1px solid #242424;
+  border-radius: 10px; border-bottom-left-radius: 2px;
+  align-self: flex-start; opacity: 0;
+}
+.mock-typing span {
+  width: 4px; height: 4px; border-radius: 50%; background: #555;
+  animation: dot-pulse .8s ease infinite;
+}
+.mock-typing span:nth-child(2) { animation-delay: .15s; }
+.mock-typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(1); opacity: .4; }
+  50%       { transform: scale(1.35); opacity: 1; }
+}
+/* Chat elements start hidden; JS drives them in */
+.js-chat-el { opacity: 0; transform: translateY(6px); }
 .mock-phone {
   width: clamp(210px, 55%, 264px);
   background: #111;
@@ -580,16 +632,18 @@ section { padding-block: var(--pad-y); }
 
 /* ─── Founder section ──────────────────────────────────────────── */
 .founder { padding-block: var(--pad-y); }
-.founder__grid {
+.founder__head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.founder__duo {
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+  gap: clamp(2rem, 4vw, 3rem);
 }
-@media (min-width: 760px) {
-  .founder__grid { grid-template-columns: .8fr 1.4fr; }
+@media (min-width: 640px) {
+  .founder__duo { grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
 }
+.founder-card { display: flex; flex-direction: column; gap: 1.25rem; }
 .founder__photo {
   aspect-ratio: 3/4; overflow: hidden; position: relative;
-  background: var(--bg2);
+  background: var(--line);
 }
 .founder__photo img {
   width: 100%; height: 100%; object-fit: cover; object-position: top center;
@@ -598,22 +652,22 @@ section { padding-block: var(--pad-y); }
 .founder__photo-ph {
   width: 100%; height: 100%;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: .75rem; color: var(--muted); min-height: 320px;
+  gap: .75rem; color: var(--muted); min-height: 280px;
 }
-.founder__photo-ph svg { width: 2rem; height: 2rem; opacity: .3; }
+.founder__photo-ph svg { width: 2rem; height: 2rem; opacity: .25; }
 .founder__photo-ph span {
-  font-size: .5625rem; letter-spacing: .14em;
+  font-size: .5rem; letter-spacing: .14em;
   text-transform: uppercase; font-weight: 600; color: var(--muted);
 }
-.founder__copy { display: flex; flex-direction: column; gap: clamp(1rem, 2vw, 1.5rem); }
-.founder__name { font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.05; }
-.founder__role { font-size: var(--fs-small); color: var(--muted); letter-spacing: .02em; }
-.founder__bio { color: var(--muted); max-width: 50ch; line-height: 1.65; font-size: var(--fs-small); }
+.founder__meta { display: flex; flex-direction: column; gap: .35rem; }
+.founder__name { font-size: clamp(1.25rem, 2.5vw + .5rem, 1.875rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.05; }
+.founder__role { font-size: var(--fs-small); color: var(--muted); }
+.founder__bio { color: var(--muted); line-height: 1.65; font-size: var(--fs-small); }
 .founder__quote {
   border-left: 2px solid var(--red);
-  padding-left: clamp(1rem, 2vw, 1.5rem);
-  font-size: clamp(1.0625rem, 1.5vw + .8rem, 1.375rem);
-  font-weight: 500; line-height: 1.35; letter-spacing: -.015em;
+  padding-left: clamp(.875rem, 2vw, 1.25rem);
+  font-size: clamp(.9375rem, 1vw + .8rem, 1.125rem);
+  font-weight: 500; line-height: 1.4; letter-spacing: -.015em;
   color: var(--ink); font-style: normal; margin: 0;
 }
 </style>
@@ -698,40 +752,71 @@ section { padding-block: var(--pad-y); }
         </div>
       </div>
 
-      <!-- Mockup CRM WhatsApp -->
+      <!-- Mockup CRM WhatsApp animado -->
       <div class="hero__img hero__mock-wrap" aria-hidden="true">
-        <div class="mock-phone">
-          <div class="mock-wa-header">
-            <div class="mock-wa-avatar">M</div>
-            <div class="mock-wa-info">
-              <span class="mock-wa-name">Marcos · cliente</span>
-              <span class="mock-wa-sub">Pulso CRM · automação ativa</span>
-            </div>
-            <span class="mock-wa-tag">CRM</span>
-          </div>
-          <div class="mock-wa-chat">
-            <div class="mock-wa-date">hoje, 09:12</div>
-            <div class="mock-bubble mock-bubble--out">
-              Oi Marcos 👋 semana passada você pediu a picanha — chegou no ponto?
-              <span class="mock-time">09:12 ✓✓</span>
-            </div>
-            <div class="mock-bubble mock-bubble--in">
-              Chegou perfeita! Tô querendo mais
-              <span class="mock-time">09:17</span>
-            </div>
-            <div class="mock-bubble mock-bubble--out">
-              Ótimo! Essa semana tem kit churrasco completo com 15% off — entrego hoje até 19h.
-              <span class="mock-time">09:17 ✓✓</span>
-            </div>
-            <div class="mock-bubble mock-bubble--in mock-bubble--convert">
-              Quero! Manda o link 🔥
-              <span class="mock-time">09:18</span>
-            </div>
-            <div class="mock-convert-tag">
-              <span class="mock-convert-dot"></span>
-              pedido convertido via CRM
+        <div class="mock-scene">
+
+          <!-- Badge flutuante -->
+          <div class="hero-float-badge">
+            <div class="hero-float-badge__icon">📈</div>
+            <div>
+              <div class="hero-float-badge__val">+38%</div>
+              <div class="hero-float-badge__lbl">pedidos · mês 1</div>
             </div>
           </div>
+
+          <div class="mock-phone">
+            <div class="mock-wa-header">
+              <div class="mock-wa-avatar">M</div>
+              <div class="mock-wa-info">
+                <span class="mock-wa-name">Marcos · cliente</span>
+                <span class="mock-wa-sub">Pulso CRM · automação ativa</span>
+              </div>
+              <span class="mock-wa-tag">CRM</span>
+            </div>
+
+            <div class="mock-wa-chat" id="js-chat">
+              <div class="mock-wa-date">hoje, 09:12</div>
+
+              <div class="mock-bubble mock-bubble--out js-chat-el" data-delay="0">
+                Oi Marcos 👋 semana passada você pediu a picanha — chegou no ponto?
+                <span class="mock-time">09:12 ✓✓</span>
+              </div>
+
+              <div class="mock-typing js-chat-el js-typing" data-delay="1100">
+                <span></span><span></span><span></span>
+              </div>
+
+              <div class="mock-bubble mock-bubble--in js-chat-el" data-delay="2200">
+                Chegou perfeita! Tô querendo mais
+                <span class="mock-time">09:17</span>
+              </div>
+
+              <div class="mock-typing js-chat-el js-typing" data-delay="3400">
+                <span></span><span></span><span></span>
+              </div>
+
+              <div class="mock-bubble mock-bubble--out js-chat-el" data-delay="4500">
+                Essa semana tem kit churrasco com 15% off — entrego hoje até 19h. 🥩
+                <span class="mock-time">09:17 ✓✓</span>
+              </div>
+
+              <div class="mock-typing js-chat-el js-typing" data-delay="5900">
+                <span></span><span></span><span></span>
+              </div>
+
+              <div class="mock-bubble mock-bubble--in mock-bubble--convert js-chat-el" data-delay="7000">
+                Quero! Manda o link 🔥
+                <span class="mock-time">09:18</span>
+              </div>
+
+              <div class="mock-convert-tag js-chat-el" data-delay="7800">
+                <span class="mock-convert-dot"></span>
+                pedido convertido via CRM
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -890,32 +975,54 @@ section { padding-block: var(--pad-y); }
 <!-- ═══════════════════════════════ FUNDADOR ═════════════════════ -->
 <section class="founder light2">
   <div class="wrap">
-    <div class="founder__grid">
 
-      <!-- Foto — substitua por <img src="sua-foto.jpg" alt="[Nome]"> -->
-      <div class="founder__photo r">
-        <div class="founder__photo-ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-          <span>foto do fundador</span>
+    <div class="founder__head">
+      <span class="label r">QUEM FAZ</span>
+    </div>
+
+    <div class="founder__duo">
+
+      <!-- Fundador 1 — substitua a foto por <img src="foto-1.jpg" alt="[Nome]"> -->
+      <div class="founder-card r">
+        <div class="founder__photo">
+          <div class="founder__photo-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>sua foto aqui</span>
+          </div>
         </div>
+        <div class="founder__meta">
+          <p class="founder__name"><!-- Seu nome --></p>
+          <p class="founder__role">Co-fundador · Pulso</p>
+        </div>
+        <p class="founder__bio">
+          <!-- Sua bio: de onde vem, o que traz pra mesa. 2–3 linhas. -->
+        </p>
+        <blockquote class="founder__quote">
+          <!-- Sua frase. Ex: "Marketing que não gera pedido não é marketing." -->
+        </blockquote>
       </div>
 
-      <div class="founder__copy">
-        <span class="label r">QUEM FAZ</span>
-        <div class="r" style="--d:60ms">
-          <p class="founder__name"><!-- Seu nome aqui --></p>
-          <p class="founder__role">Fundador · Pulso</p>
+      <!-- Fundador 2 — substitua a foto por <img src="foto-mattheus.jpg" alt="Mattheus"> -->
+      <div class="founder-card r" style="--d:100ms">
+        <div class="founder__photo">
+          <div class="founder__photo-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>foto do Mattheus aqui</span>
+          </div>
         </div>
-        <p class="founder__bio r" style="--d:120ms">
-          <!-- Sua bio em 2–3 linhas: de onde vem, por que açougue, o que aprendeu.
-               Ex: "Cresci vendo meu pai vender carne. Aprendi marketing em agências grandes
-               e percebi que os donos de açougue são os clientes que mais precisam — e menos
-               recebem — de um trabalho honesto." -->
+        <div class="founder__meta">
+          <p class="founder__name">Mattheus</p>
+          <p class="founder__role">Co-fundador · Pulso</p>
+        </div>
+        <p class="founder__bio">
+          <!-- Bio do Mattheus. 2–3 linhas. -->
         </p>
-        <blockquote class="founder__quote r" style="--d:180ms">
-          <!-- Sua frase-chave. Ex: "Marketing que não gera pedido não é marketing." -->
+        <blockquote class="founder__quote">
+          <!-- Frase do Mattheus. -->
         </blockquote>
       </div>
 
@@ -1135,6 +1242,73 @@ section { padding-block: var(--pad-y); }
     entries.forEach(function(e){ if(e.isIntersecting){ run(e.target); cio.unobserve(e.target); } });
   },{threshold:.4});
   cs.forEach(function(c){ cio.observe(c); });
+})();
+
+/* Chat animation */
+(function(){
+  var chat = document.getElementById('js-chat');
+  if(!chat) return;
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var els = Array.from(chat.querySelectorAll('.js-chat-el'));
+
+  function reset(){
+    els.forEach(function(el){
+      el.style.transition = 'none';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(6px)';
+      if(el.classList.contains('js-typing')) el.style.display = 'none';
+    });
+  }
+
+  function show(el){
+    var typing = el.classList.contains('js-typing');
+    if(typing) el.style.display = 'flex';
+    requestAnimationFrame(function(){
+      el.style.transition = 'opacity .35s ease, transform .35s ease';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  }
+
+  function hide(el){
+    el.style.transition = 'opacity .2s ease';
+    el.style.opacity = '0';
+  }
+
+  var timers = [];
+
+  function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+
+  function runCycle(){
+    clearTimers();
+    reset();
+    var maxDelay = 0;
+    els.forEach(function(el){
+      var delay = parseInt(el.dataset.delay||'0', 10);
+      if(delay > maxDelay) maxDelay = delay;
+      var typing = el.classList.contains('js-typing');
+      timers.push(setTimeout(function(){
+        show(el);
+        if(typing) timers.push(setTimeout(function(){ hide(el); }, 1050));
+      }, delay + 400));
+    });
+    timers.push(setTimeout(function(){
+      els.forEach(function(el){
+        el.style.transition = 'opacity .7s ease';
+        el.style.opacity = '0';
+      });
+      timers.push(setTimeout(runCycle, 1000));
+    }, maxDelay + 400 + 3800));
+  }
+
+  if(reduce){
+    els.forEach(function(el){
+      el.style.opacity = '1'; el.style.transform = 'none';
+      if(el.classList.contains('js-typing')) el.style.display = 'none';
+    });
+    return;
+  }
+  setTimeout(runCycle, 800);
 })();
 </script>
 </body>
