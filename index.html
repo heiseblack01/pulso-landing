@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pulso · Marketing para açougue com delivery — diagnóstico gratuito</title>
+<meta name="description" content="A Pulso é a agência de marketing para açougue de bairro com delivery. Tráfego pago, CRM no WhatsApp e conteúdo — resultado no primeiro mês. Diagnóstico gratuito.">
+<meta name="keywords" content="marketing para açougue, açougue com delivery, tráfego pago açougue, CRM açougue, marketing açougue de bairro, agência de marketing açougue">
+<meta property="og:title" content="Pulso · Marketing para açougue com delivery">
+<meta property="og:description" content="Diagnóstico gratuito. Resultado no primeiro mês. Sem mudar nada na sua operação.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://pulso.ag/">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Em quanto tempo eu vejo resultado?","acceptedAnswer":{"@type":"Answer","text":"No primeiro mês. A Pulso desenha o diagnóstico, sobe campanha e ativa o CRM na primeira semana."}},{"@type":"Question","name":"Quanto custa?","acceptedAnswer":{"@type":"Answer","text":"O diagnóstico é gratuito, 30 minutos. Depois, o plano fixo cabe no caixa de um açougue de bairro."}},{"@type":"Question","name":"Preciso ter Instagram com muito seguidor?","acceptedAnswer":{"@type":"Answer","text":"Não. A Pulso trabalha com tráfego pago direto pra quem mora perto do seu açougue."}},{"@type":"Question","name":"E se eu já trabalho com uma agência?","acceptedAnswer":{"@type":"Answer","text":"A gente faz o diagnóstico do mesmo jeito e mostra onde você pode estar perdendo dinheiro."}},{"@type":"Question","name":"Vocês atendem fora de São Paulo?","acceptedAnswer":{"@type":"Answer","text":"Sim. O método é o mesmo em qualquer cidade onde tem açougue de bairro com delivery."}},{"@type":"Question","name":"E se não funcionar?","acceptedAnswer":{"@type":"Answer","text":"Sem fidelização. Você sai quando quiser."}}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Tokens ──────────────────────────────────────────────────── */
+:root {
+  --ink:      #0C0C0C;
+  --surface:  #161616;
+  --surface2: #1E1E1E;
+  --bg:       #F5F5F2;
+  --bg2:      #EEECEA;
+  --muted:    #6B6B6B;
+  --muted-dk: #8C8C8C;
+  --line:     #E4E4E2;
+  --line-dk:  #272727;
+  --red:      #C8281E;
+  --red-dk:   #A3201A;
+
+  --fs-disp:   clamp(3rem,   8vw  + .5rem, 7rem);
+  --fs-h1:     clamp(2rem,   5vw  + .5rem, 4rem);
+  --fs-h2:     clamp(1.5rem, 3vw  + .4rem, 2.5rem);
+  --fs-stat:   clamp(3.5rem, 10vw + .5rem, 8rem);
+  --fs-lead:   clamp(1.0625rem, 1vw + .9rem, 1.4375rem);
+  --fs-body:   clamp(.9375rem,  .5vw + .875rem, 1.125rem);
+  --fs-small:  .8125rem;
+  --fs-label:  .6875rem;
+
+  --pad-x: clamp(1.25rem, 5vw, 4.5rem);
+  --pad-y: clamp(4rem, 9vw, 8rem);
+  --r: 0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Geist", system-ui, sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--red); color: #fff; }
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; }
+
+/* ─── Layout ──────────────────────────────────────────────────── */
+.wrap { max-width: 1280px; margin-inline: auto; padding-inline: var(--pad-x); }
+section { padding-block: var(--pad-y); }
+.dark  { background: var(--ink);     color: var(--bg);  }
+.dark2 { background: var(--surface); color: var(--bg);  }
+.light { background: var(--bg);      color: var(--ink); }
+.light2{ background: var(--bg2);     color: var(--ink); }
+
+/* ─── Logo ────────────────────────────────────────────────────── */
+.logo {
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.logo svg { height: 36px; width: auto; display: block; }
+@media (min-width: 820px) { .logo svg { height: 40px; } }
+
+/* ─── Nav ─────────────────────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(12,12,12,.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line-dk);
+  --logo-ink: var(--bg);
+  --logo-bg: var(--ink);
+}
+.nav__inner {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem; height: 64px;
+}
+.nav__links {
+  display: none; gap: 2rem;
+  font-size: .9375rem; font-weight: 500; color: var(--bg);
+}
+.nav__links a { opacity: .65; transition: opacity .15s; }
+.nav__links a:hover { opacity: 1; }
+.nav__cta {
+  display: inline-flex; align-items: center; gap: .5em;
+  background: var(--red); color: #fff;
+  font-weight: 600; font-size: .8125rem; letter-spacing: .02em;
+  padding: .6rem 1rem; transition: background .15s; white-space: nowrap;
+}
+.nav__cta:hover { background: var(--red-dk); }
+@media (min-width: 820px) {
+  .nav__inner { height: 72px; }
+  .nav__links { display: flex; }
+  .nav__cta { font-size: .9375rem; padding: .7rem 1.25rem; }
+}
+
+/* ─── Type helpers ────────────────────────────────────────────── */
+.label {
+  display: inline-block;
+  font-size: var(--fs-label); font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; line-height: 1;
+  color: var(--muted);
+}
+.label--red { color: var(--red); }
+.display {
+  font-size: var(--fs-disp); font-weight: 800;
+  line-height: .97; letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.h1 {
+  font-size: var(--fs-h1); font-weight: 700;
+  line-height: 1.05; letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.h2 {
+  font-size: var(--fs-h2); font-weight: 600;
+  line-height: 1.1; letter-spacing: -.02em;
+}
+.lead {
+  font-size: var(--fs-lead); line-height: 1.45;
+  color: var(--muted);
+}
+.lead--dk { color: var(--muted-dk); }
+.muted { color: var(--muted); }
+.muted-dk { color: var(--muted-dk); }
+
+/* ─── Button ──────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: .6em;
+  background: var(--red); color: #fff;
+  font-weight: 600; font-size: clamp(.9375rem, .3vw + .9rem, 1.0625rem);
+  padding: 1rem 1.5rem; line-height: 1;
+  border: 0; cursor: pointer; transition: background .15s, transform .1s;
+}
+.btn:hover { background: var(--red-dk); }
+.btn:active { transform: translateY(1px); }
+.btn--ghost {
+  background: transparent; color: var(--bg);
+  border: 1px solid rgba(245,245,242,.25);
+}
+.btn--ghost:hover { background: rgba(245,245,242,.08); }
+.btn__arr { transition: transform .2s; }
+.btn:hover .btn__arr { transform: translateX(4px); }
+
+/* ─── Img placeholder ─────────────────────────────────────────── */
+.ph {
+  width: 100%; position: relative; overflow: hidden;
+  background: #1A1A1A;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: .75rem;
+}
+.ph--light { background: #E8E6E3; }
+.ph::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(-45deg,transparent,transparent 24px,rgba(255,255,255,.025) 24px,rgba(255,255,255,.025) 25px);
+}
+.ph__icon { width: 2rem; height: 2rem; opacity: .3; position: relative; flex-shrink: 0; }
+.ph__icon--dark { opacity: .2; filter: invert(1); }
+.ph__lbl {
+  position: relative;
+  font-size: .625rem; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(245,245,242,.4);
+}
+.ph__lbl--dark { color: rgba(12,12,12,.3); }
+
+/* ─── ─────────── SECTIONS ──────────────────────────────────── */
+
+/* HERO */
+.hero { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: 0; }
+.hero__grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+@media (min-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr .6fr; align-items: start; }
+}
+.hero__copy {
+  display: flex; flex-direction: column;
+  gap: clamp(1.5rem, 2.5vw, 2rem);
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+}
+.hero__accent {
+  width: clamp(2.25rem, 3.5vw, 3rem);
+  height: clamp(2.25rem, 3.5vw, 3rem);
+}
+.hero__title { color: var(--bg); }
+.hero__title em { font-style: normal; color: var(--red); }
+.hero__sub { max-width: 44ch; }
+.hero__actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.hero__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  align-self: end;
+}
+@media (min-width: 900px) {
+  .hero__img {
+    aspect-ratio: 2 / 3;
+    min-height: 520px;
+    align-self: stretch;
+    margin-top: calc(-1 * clamp(3rem, 7vw, 6rem));
+  }
+}
+
+/* MARQUEE */
+.marquee {
+  background: var(--bg); overflow: hidden; margin: 0; padding: 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.marquee__vp {
+  display: flex; overflow: hidden;
+  padding-block: clamp(1.125rem, 2vw, 1.625rem);
+  mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.marquee__track {
+  display: flex; gap: clamp(2rem, 4vw, 4rem); flex-shrink: 0;
+  align-items: center; white-space: nowrap;
+  padding-right: clamp(2rem, 4vw, 4rem);
+  animation: mq 40s linear infinite; will-change: transform;
+}
+.marquee__item {
+  font-size: clamp(1.125rem, 2.5vw + .4rem, 2.5rem);
+  font-weight: 800; letter-spacing: -.025em; line-height: 1; color: var(--ink);
+}
+.marquee__sign { color: var(--red); margin-right: .1em; }
+.marquee__sep {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--line); flex-shrink: 0;
+}
+@keyframes mq { to { transform: translateX(calc(-100% - clamp(2rem,4vw,4rem))); } }
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+
+/* DOR */
+.dor__head { max-width: 30ch; margin-bottom: clamp(3rem, 6vw, 5rem); }
+.dor__list { border-top: 1px solid var(--line); }
+.dor__item {
+  display: grid; grid-template-columns: 2.5rem 1fr;
+  gap: 1rem; align-items: start;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 640px) { .dor__item { grid-template-columns: 3rem 1fr 1fr; gap: 1.5rem 2rem; } }
+.dor__num {
+  font-size: var(--fs-label); font-weight: 600;
+  letter-spacing: .1em; color: var(--muted); padding-top: .35em;
+}
+.dor__title {
+  font-size: clamp(1.25rem, 2vw + .8rem, 2rem);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.1;
+  color: var(--ink);
+}
+.dor__body { color: var(--muted); font-size: var(--fs-small); line-height: 1.55; padding-top: .25em; }
+@media (max-width: 639px) {
+  .dor__title { grid-column: 2; }
+  .dor__body { grid-column: 2; }
+}
+
+/* PROVA */
+.prova { padding-block: var(--pad-y); }
+.prova__grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+@media (min-width: 760px) {
+  .prova__grid { grid-template-columns: 1.1fr 1fr; align-items: center; }
+}
+.prova__copy { display: flex; flex-direction: column; gap: clamp(1.25rem, 2.5vw, 2rem); }
+.prova__stat {
+  font-size: var(--fs-stat); font-weight: 800;
+  letter-spacing: -.04em; line-height: .9; color: var(--bg);
+}
+.prova__stat-caption { color: var(--muted-dk); font-size: var(--fs-small); }
+.prova__quote {
+  border-left: 2px solid var(--red);
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  display: flex; flex-direction: column; gap: .5rem;
+  margin-top: .5rem;
+}
+.prova__qtext {
+  font-size: clamp(1.125rem, 1.5vw + .9rem, 1.625rem);
+  font-weight: 500; line-height: 1.3; letter-spacing: -.015em; color: var(--bg);
+}
+.prova__qcite { font-size: var(--fs-small); color: var(--muted-dk); }
+.prova__note { font-size: var(--fs-small); color: var(--muted-dk); max-width: 44ch; }
+.prova__img { aspect-ratio: 4/3; }
+
+/* STATS */
+.stats__lbl { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: clamp(2rem, 3.5vw, 3.5rem) clamp(1.5rem, 3vw, 3rem);
+}
+@media (min-width: 820px) { .stats__grid { grid-template-columns: repeat(4,1fr); } }
+.stat-cell {
+  display: flex; flex-direction: column; gap: .75rem;
+  border-top: 1px solid var(--line); padding-top: 1.25rem;
+}
+.stat-cell__n {
+  font-weight: 800; line-height: .95; letter-spacing: -.04em;
+  font-size: clamp(2.5rem, 5.5vw + .5rem, 4.5rem);
+  display: inline-flex; align-items: baseline; gap: .05em;
+}
+.stat-cell__pre, .stat-cell__suf { color: var(--red); }
+.stat-cell__min {
+  font-size: .5em; color: var(--muted); margin-left: .15em; letter-spacing: -.01em;
+}
+.stat-cell__lbl { color: var(--muted); font-size: var(--fs-small); line-height: 1.4; max-width: 22ch; }
+
+/* MÉTODO */
+.metodo__head { max-width: 28ch; margin-bottom: clamp(3rem, 6vw, 5rem); }
+.steps {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(2rem, 3vw, 2.5rem);
+}
+@media (min-width: 820px) { .steps { grid-template-columns: repeat(3,1fr); } }
+.step {
+  display: flex; flex-direction: column; gap: .75rem;
+  padding-top: 1.5rem; border-top: 1px solid var(--line-dk);
+}
+.step__num {
+  font-size: var(--fs-label); font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted-dk);
+}
+.step__title {
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 1.75rem);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.1;
+  color: var(--bg);
+}
+.step__body { color: var(--muted-dk); font-size: var(--fs-small); max-width: 28ch; line-height: 1.55; }
+
+/* COMPARE */
+.compare { padding-block: var(--pad-y); }
+.compare__head { max-width: 28ch; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.compare__tbl { border-top: 1px solid var(--line); }
+.compare__hrow { display: none; }
+.compare__row {
+  display: grid; grid-template-columns: 1fr;
+  gap: .5rem; padding: clamp(1rem, 2.5vw, 1.5rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+.compare__crit {
+  font-weight: 600; font-size: clamp(.9375rem, .5vw + .875rem, 1.0625rem);
+  letter-spacing: -.01em;
+}
+.compare__cells { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem; }
+.compare__cell { display: flex; flex-direction: column; gap: .2rem; }
+.compare__cell-lbl {
+  font-size: .5625rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.compare__val { font-size: .875rem; font-weight: 500; color: var(--muted); }
+.compare__cell--y .compare__val { color: var(--red); font-weight: 700; }
+.compare__cell--n .compare__val { color: var(--muted); }
+@media (min-width: 760px) {
+  .compare__hrow {
+    display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    padding-bottom: 1rem; gap: 1rem;
+  }
+  .compare__hlbl {
+    font-size: var(--fs-label); letter-spacing: .14em;
+    text-transform: uppercase; color: var(--muted); font-weight: 600;
+  }
+  .compare__hlbl--p { color: var(--red); }
+  .compare__row { grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 1rem; align-items: center; }
+  .compare__cells { display: contents; }
+  .compare__cell { display: block; }
+  .compare__cell-lbl { display: none; }
+  .compare__val { font-size: .9375rem; }
+  .compare__row > *:nth-child(4) .compare__val,
+  .compare__cells > *:nth-child(3) .compare__val { font-weight: 700; }
+}
+
+/* OBJEÇÃO */
+.obj { text-align: center; }
+.obj__inner {
+  max-width: 40ch; margin-inline: auto;
+  display: flex; flex-direction: column;
+  align-items: center; gap: clamp(1rem, 2vw, 1.5rem);
+}
+.obj__h {
+  font-size: clamp(1.625rem, 2.5vw + 1rem, 3rem);
+  font-weight: 600; letter-spacing: -.025em; line-height: 1.1; text-wrap: balance;
+}
+.obj__sub { color: var(--muted-dk); }
+
+/* FAQ */
+.faq__head { max-width: 24ch; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.faq__list { border-top: 1px solid var(--line); }
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__item summary {
+  list-style: none; cursor: pointer; user-select: none;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+  font-weight: 600; font-size: clamp(1rem, .8vw + .95rem, 1.3125rem);
+  letter-spacing: -.015em; line-height: 1.3;
+  display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__ico {
+  font-size: 1.375rem; font-weight: 300; flex-shrink: 0;
+  width: 1rem; text-align: center; color: var(--red);
+  transition: transform .25s;
+}
+.faq__item[open] .faq__ico { transform: rotate(45deg); }
+.faq__ans {
+  color: var(--muted); padding-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 58ch; font-size: var(--fs-small); line-height: 1.65;
+}
+
+/* CTA */
+.cta { padding-block: var(--pad-y); }
+.cta__inner { display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); max-width: 24ch; }
+.cta__sub { color: var(--muted-dk); }
+
+/* FOOTER */
+.foot {
+  background: var(--surface); color: var(--bg);
+  border-top: 1px solid var(--line-dk);
+  padding-block: clamp(2rem, 4vw, 3rem);
+  --logo-ink: var(--bg); --logo-bg: var(--surface);
+}
+.foot__inner {
+  display: flex; flex-direction: column;
+  gap: 1.25rem; align-items: flex-start;
+}
+.foot__meta, .foot__tag { color: var(--muted-dk); font-size: var(--fs-small); }
+@media (min-width: 820px) {
+  .foot__inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; }
+  .foot__meta { text-align: center; flex: 1; }
+  .foot__tag  { text-align: right; }
+}
+
+/* ─── Scroll reveal ───────────────────────────────────────────── */
+.r {
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease;
+  transition-delay: var(--d, 0ms); will-change: opacity,transform;
+}
+.r.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; transition: none; } }
+
+/* ─── Focus ───────────────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ══════════════════════════ -->
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a href="#" class="logo" aria-label="Pulso — início">
+      <!-- Lockup oficial — branco para nav escuro -->
+      <svg viewBox="0 0 349.10 100" role="img" aria-label="pulso" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0,11) scale(0.78)">
+          <defs>
+            <mask id="mn">
+              <rect width="100" height="100" fill="white"/>
+              <circle cx="52" cy="38" r="15" fill="black"/>
+              <rect x="12" y="37" width="76" height="4.5" fill="black"/>
+            </mask>
+          </defs>
+          <g mask="url(#mn)" fill="#F5F5F3">
+            <circle cx="52" cy="38" r="32"/>
+            <rect x="12" y="6" width="14" height="88" rx="1.5"/>
+          </g>
+        </g>
+        <text x="105.5" y="85.5" font-family="Geist, system-ui, sans-serif" font-weight="500" font-size="100" letter-spacing="-0.045em" fill="#F5F5F3">pulso</text>
+      </svg>
+    </a>
+
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#metodo">O método</a>
+      <a href="#cases">Cases</a>
+      <a href="#planos">Planos</a>
+    </nav>
+
+    <a href="/diagnostico" class="nav__cta">Diagnóstico gratuito <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════ HERO ═════════════════════════ -->
+<section class="hero dark">
+  <div class="wrap">
+    <div class="hero__grid">
+
+      <!-- Copy -->
+      <div class="hero__copy">
+        <!-- Símbolo com fresta acesa — spec oficial brand/assets/svg/pulso-mark-white-pulse.svg -->
+        <svg class="hero__accent" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <mask id="mh">
+              <rect width="100" height="100" fill="white"/>
+              <circle cx="52" cy="38" r="15" fill="black"/>
+              <rect x="12" y="37" width="76" height="4.5" fill="black"/>
+            </mask>
+          </defs>
+          <g mask="url(#mh)" fill="#F5F5F3">
+            <circle cx="52" cy="38" r="32"/>
+            <rect x="12" y="6" width="14" height="88" rx="1.5"/>
+          </g>
+          <rect x="12" y="37" width="76" height="4.5" fill="#C8281E"/>
+        </svg>
+
+        <span class="label">MARKETING PARA AÇOUGUE · DELIVERY</span>
+
+        <h1 class="display hero__title">
+          A gente faz seu açougue vender<br>
+          <em>kits todo mês.</em>
+        </h1>
+
+        <p class="lead lead--dk hero__sub">
+          Não só no fim de semana. A gente arruma sua quarta de manhã, seu domingo à noite, e o cliente que comprou uma vez e nunca mais voltou.
+        </p>
+
+        <div class="hero__actions">
+          <a href="/diagnostico" class="btn">
+            Quero o diagnóstico gratuito
+            <span class="btn__arr" aria-hidden="true">→</span>
+          </a>
+          <a href="#metodo" class="btn btn--ghost">Como funciona</a>
+        </div>
+      </div>
+
+      <!-- Imagem -->
+      <div class="ph hero__img">
+        <svg class="ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+        <span class="ph__lbl">Foto do açougue</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ MARQUEE ══════════════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__vp">
+    <div class="marquee__track">
+      <span class="marquee__item"><span class="marquee__sign">+</span>PEDIDOS NA SEMANA</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">−</span>QUARTA FRACA</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">+</span>RECORRÊNCIA</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">−</span>DESCONTO IMPROVISADO</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">+</span>WHATSAPP QUE VENDE</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">−</span>RUÍDO</span>
+      <span class="marquee__sep"></span>
+    </div>
+    <div class="marquee__track" aria-hidden="true">
+      <span class="marquee__item"><span class="marquee__sign">+</span>PEDIDOS NA SEMANA</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">−</span>QUARTA FRACA</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">+</span>RECORRÊNCIA</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">−</span>DESCONTO IMPROVISADO</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">+</span>WHATSAPP QUE VENDE</span>
+      <span class="marquee__sep"></span>
+      <span class="marquee__item"><span class="marquee__sign">−</span>RUÍDO</span>
+      <span class="marquee__sep"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ DOR ══════════════════════════ -->
+<section class="light">
+  <div class="wrap">
+    <div class="dor__head">
+      <h2 class="h1 r">Você reconhece alguma dessas situações?</h2>
+    </div>
+
+    <div class="dor__list">
+      <div class="dor__item r">
+        <span class="dor__num">01</span>
+        <p class="dor__title">Quarta-feira fraca todo mês.</p>
+        <p class="dor__body">O fim de semana salva. Mas de segunda a quinta, o caixa pesa. Você sabe que dá pra vender mais — não sabe como.</p>
+      </div>
+      <div class="dor__item r" style="--d:80ms">
+        <span class="dor__num">02</span>
+        <p class="dor__title">Cliente compra uma vez e some.</p>
+        <p class="dor__body">Ele veio, gostou da carne, do atendimento. E nunca mais voltou. Não foi embora por ruim — foi por falta de motivo pra voltar.</p>
+      </div>
+      <div class="dor__item r" style="--d:160ms">
+        <span class="dor__num">03</span>
+        <p class="dor__title">Anúncio rodando, pedido não vem.</p>
+        <p class="dor__body">A verba sai, os cliques aparecem. Mas o WhatsApp não bipa. O anúncio está certo, mas o que vem depois não está.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROVA ════════════════════════ -->
+<section id="cases" class="prova dark">
+  <div class="wrap">
+    <div class="prova__grid">
+
+      <div class="prova__copy">
+        <span class="label r">RESULTADO · CLIENTE ATIVO · 2026</span>
+        <p class="prova__stat r" style="--d:60ms">+38%</p>
+        <p class="prova__stat-caption r" style="--d:100ms">de pedidos no primeiro mês — açougue de bairro com delivery · São Paulo</p>
+
+        <blockquote class="prova__quote r" style="--d:180ms">
+          <p class="prova__qtext">"A semana parou de ser problema."</p>
+          <cite class="prova__qcite">— Dona do açougue, cliente ativo</cite>
+        </blockquote>
+
+        <p class="prova__note r" style="--d:240ms">Resultado real. Números serão atualizados com o case documentado.</p>
+
+        <div class="r" style="--d:300ms">
+          <a href="/diagnostico" class="btn">Quero esse resultado <span class="btn__arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="r" style="--d:120ms">
+        <div class="ph prova__img">
+          <svg class="ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="ph__lbl">Foto do açougue parceiro</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ STATS ════════════════════════ -->
+<section class="light">
+  <div class="wrap">
+    <div class="stats__lbl">
+      <span class="label r">A PULSO EM NÚMEROS</span>
+    </div>
+    <div class="stats__grid">
+      <div class="stat-cell r">
+        <span class="stat-cell__n"><span class="stat-cell__num-val" data-count="1">0</span></span>
+        <p class="stat-cell__lbl">Açougue ativo na rua, hoje.</p>
+      </div>
+      <div class="stat-cell r" style="--d:80ms">
+        <span class="stat-cell__n">
+          <span class="stat-cell__pre">+</span><span class="stat-cell__num-val" data-count="38">0</span><span class="stat-cell__pre">%</span>
+        </span>
+        <p class="stat-cell__lbl">Pedidos a mais no primeiro mês.</p>
+      </div>
+      <div class="stat-cell r" style="--d:160ms">
+        <span class="stat-cell__n">
+          <span class="stat-cell__num-val" data-count="30">0</span><span class="stat-cell__min">min</span>
+        </span>
+        <p class="stat-cell__lbl">Diagnóstico gratuito, sem compromisso.</p>
+      </div>
+      <div class="stat-cell r" style="--d:240ms">
+        <span class="stat-cell__n">
+          <span class="stat-cell__pre">R$</span><span class="stat-cell__num-val" data-count="0">0</span>
+        </span>
+        <p class="stat-cell__lbl">Pra começar. Você só paga se decidir ir adiante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ MÉTODO ═══════════════════════ -->
+<section id="metodo" class="dark">
+  <div class="wrap">
+    <div class="metodo__head">
+      <h2 class="h1 r" style="color:var(--bg)">Como a gente faz seu açougue vender toda semana.</h2>
+    </div>
+    <div class="steps">
+      <article class="step r">
+        <span class="step__num">01 · Tráfego Meta</span>
+        <h3 class="step__title">Kit certo pra pessoa certa, na hora certa.</h3>
+        <p class="step__body">Anúncio que alcança quem mora perto e já quer comprar — não só na sexta antes do churrasco.</p>
+      </article>
+      <article class="step r" style="--d:80ms">
+        <span class="step__num">02 · CRM Kommo</span>
+        <h3 class="step__title">Cliente que comprou uma vez volta toda semana.</h3>
+        <p class="step__body">WhatsApp que lembra, avisa e converte. Sem spam. Sem forçar. Com o que ele já gosta.</p>
+      </article>
+      <article class="step r" style="--d:160ms">
+        <span class="step__num">03 · Conteúdo</span>
+        <h3 class="step__title">Seu açougue aparece quando o cliente está com fome.</h3>
+        <p class="step__body">Foto que vende. Texto que chega direto. Nada de reels dançando.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ COMPARE ══════════════════════ -->
+<section id="compare" class="compare light">
+  <div class="wrap">
+    <h2 class="h1 compare__head r">Pulso vs. o que existe hoje.</h2>
+
+    <div class="compare__tbl">
+      <div class="compare__hrow" aria-hidden="true">
+        <span class="compare__hlbl"></span>
+        <span class="compare__hlbl">Você sozinho</span>
+        <span class="compare__hlbl">Agência tradicional</span>
+        <span class="compare__hlbl compare__hlbl--p">Pulso</span>
+      </div>
+
+      <div class="compare__row r">
+        <span class="compare__crit">Conhece açougue de bairro</span>
+        <div class="compare__cells">
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">—</span></span>
+          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+        </div>
+      </div>
+      <div class="compare__row r">
+        <span class="compare__crit">Tráfego segmentado pra delivery</span>
+        <div class="compare__cells">
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">às vezes</span></span>
+          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+        </div>
+      </div>
+      <div class="compare__row r">
+        <span class="compare__crit">CRM no WhatsApp pra recompra</span>
+        <div class="compare__cells">
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">—</span></span>
+          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+        </div>
+      </div>
+      <div class="compare__row r">
+        <span class="compare__crit">Conteúdo que vende, não que enfeita</span>
+        <div class="compare__cells">
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">às vezes</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">genérico</span></span>
+          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+        </div>
+      </div>
+      <div class="compare__row r">
+        <span class="compare__crit">Encaixa na sua operação atual</span>
+        <div class="compare__cells">
+          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">quer mudar tudo</span></span>
+          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+        </div>
+      </div>
+      <div class="compare__row r">
+        <span class="compare__crit">Resultado mensurável no 1º mês</span>
+        <div class="compare__cells">
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">depois de 3 meses</span></span>
+          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ OBJEÇÃO ══════════════════════ -->
+<section class="obj dark2">
+  <div class="wrap obj__inner">
+    <h2 class="obj__h r">Não precisa mudar nada na sua operação.</h2>
+    <p class="obj__sub r" style="--d:80ms">
+      A gente encaixa no que você já tem — WhatsApp, delivery, Instagram. Organiza e faz render mais.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FAQ ══════════════════════════ -->
+<section id="faq" class="light">
+  <div class="wrap">
+    <h2 class="h1 faq__head r">Perguntas frequentes.</h2>
+    <div class="faq__list">
+      <details class="faq__item r">
+        <summary>Em quanto tempo eu vejo resultado?<span class="faq__ico" aria-hidden="true">+</span></summary>
+        <p class="faq__ans">No primeiro mês. A Pulso desenha o diagnóstico, sobe campanha e ativa o CRM na primeira semana — o resto é ajuste fino baseado nos pedidos que começam a entrar.</p>
+      </details>
+      <details class="faq__item r">
+        <summary>Quanto custa?<span class="faq__ico" aria-hidden="true">+</span></summary>
+        <p class="faq__ans">O diagnóstico é gratuito, 30 minutos. Depois, o plano fixo cabe no caixa de um açougue de bairro — a gente fala números direto no diagnóstico, sem joguinho.</p>
+      </details>
+      <details class="faq__item r">
+        <summary>Preciso ter Instagram com muito seguidor?<span class="faq__ico" aria-hidden="true">+</span></summary>
+        <p class="faq__ans">Não. Seguidor não paga conta. A Pulso trabalha com tráfego pago direto pra quem mora perto do seu açougue — funciona com Instagram zerado.</p>
+      </details>
+      <details class="faq__item r">
+        <summary>E se eu já trabalho com uma agência?<span class="faq__ico" aria-hidden="true">+</span></summary>
+        <p class="faq__ans">A gente faz o diagnóstico do mesmo jeito. Se o que sua agência faz tá funcionando, a gente fala. Se não tá, a gente mostra onde — e você decide.</p>
+      </details>
+      <details class="faq__item r">
+        <summary>Vocês atendem fora de São Paulo?<span class="faq__ico" aria-hidden="true">+</span></summary>
+        <p class="faq__ans">Sim. O método é o mesmo em qualquer cidade onde tem açougue de bairro com delivery. Operamos remoto, com reunião semanal.</p>
+      </details>
+      <details class="faq__item r">
+        <summary>E se não funcionar?<span class="faq__ico" aria-hidden="true">+</span></summary>
+        <p class="faq__ans">Sem fidelização. Você sai quando quiser. O nosso trabalho é fazer você querer ficar.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CTA FINAL ════════════════════ -->
+<section class="cta dark">
+  <div class="wrap cta__inner">
+    <h2 class="display r" style="color:var(--bg)">Sua quarta-feira ainda está fraca?</h2>
+    <p class="cta__sub r" style="--d:80ms">Diagnóstico gratuito de 30 minutos. Sem compromisso.</p>
+    <div class="r" style="--d:160ms">
+      <a href="/diagnostico" class="btn">
+        Fazer o diagnóstico gratuito
+        <span class="btn__arr" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════ -->
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <a href="#" class="logo" aria-label="Pulso">
+      <!-- Símbolo branco — footer escuro -->
+      <svg viewBox="0 0 100 100" role="img" aria-label="pulso" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="mf">
+            <rect width="100" height="100" fill="white"/>
+            <circle cx="52" cy="38" r="15" fill="black"/>
+            <rect x="12" y="37" width="76" height="4.5" fill="black"/>
+          </mask>
+        </defs>
+        <g mask="url(#mf)" fill="#F5F5F3">
+          <circle cx="52" cy="38" r="32"/>
+          <rect x="12" y="6" width="14" height="88" rx="1.5"/>
+        </g>
+      </svg>
+      <span style="font-family:'Geist',system-ui,sans-serif;font-weight:500;letter-spacing:-.045em;font-size:1.5rem;line-height:1;color:#F5F5F3">pulso</span>
+    </a>
+    <p class="foot__meta">pulso.ag · Marketing para açougue com delivery</p>
+    <p class="foot__tag">Sinal, não ruído.</p>
+  </div>
+</footer>
+
+<script>
+/* Scroll reveal */
+(function () {
+  var items = document.querySelectorAll('.r');
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (!('IntersectionObserver' in window) || reduce) {
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{ threshold:.08, rootMargin:'0px 0px -4% 0px' });
+  items.forEach(function(el){ io.observe(el); });
+})();
+
+/* Counter animation */
+(function(){
+  var cs = document.querySelectorAll('[data-count]');
+  if(!cs.length) return;
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function run(el){
+    var target = parseFloat(el.dataset.count);
+    if(reduce){ el.textContent=target; return; }
+    var t0=performance.now(), dur=1400;
+    (function tick(now){
+      var t=Math.min(1,(now-t0)/dur), ease=1-Math.pow(1-t,3);
+      el.textContent=Math.round(target*ease);
+      if(t<1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  if(!('IntersectionObserver' in window)){ cs.forEach(run); return; }
+  var cio=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ run(e.target); cio.unobserve(e.target); } });
+  },{threshold:.4});
+  cs.forEach(function(c){ cio.observe(c); });
+})();
+</script>
+</body>
+</html>
