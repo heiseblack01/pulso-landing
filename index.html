@@ -330,27 +330,36 @@ section { padding-block: var(--pad-y); }
 .stat-cell__lbl { color: var(--muted); font-size: var(--fs-small); line-height: 1.4; max-width: 22ch; }
 
 /* MÉTODO */
-.metodo__head { max-width: 28ch; margin-bottom: clamp(3rem, 6vw, 5rem); }
-.steps {
+/* ─── Método — two-col sticky layout ─── */
+.metodo__inner {
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(2rem, 3vw, 2.5rem);
+  gap: clamp(2.5rem, 5vw, 4rem);
 }
-@media (min-width: 820px) { .steps { grid-template-columns: repeat(3,1fr); } }
+@media (min-width: 820px) {
+  .metodo__inner { grid-template-columns: 2fr 3fr; gap: clamp(4rem, 8vw, 9rem); align-items: start; }
+  .metodo__head { position: sticky; top: calc(72px + 3rem); }
+}
+.metodo__head { display: flex; flex-direction: column; gap: 1.25rem; }
+.metodo__head .h1 { color: var(--bg); font-size: clamp(1.75rem, 3vw + .5rem, 2.75rem); }
+.steps { display: flex; flex-direction: column; border-top: 1px solid var(--line-dk); }
 .step {
-  display: flex; flex-direction: column; gap: .75rem;
-  padding-top: 1.5rem; border-top: 1px solid var(--line-dk);
+  display: grid; grid-template-columns: 2.5rem 1fr;
+  gap: 1rem 1.5rem; align-items: start;
+  padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-bottom: 1px solid var(--line-dk);
 }
 .step__num {
   font-size: var(--fs-label); font-weight: 600;
   letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted-dk);
+  color: var(--red); padding-top: .3em; line-height: 1;
 }
+.step__content { display: flex; flex-direction: column; gap: .5rem; }
 .step__title {
-  font-size: clamp(1.25rem, 1.5vw + 1rem, 1.75rem);
-  font-weight: 700; letter-spacing: -.02em; line-height: 1.1;
+  font-size: clamp(1.125rem, 1.5vw + .8rem, 1.5rem);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.15;
   color: var(--bg);
 }
-.step__body { color: var(--muted-dk); font-size: var(--fs-small); max-width: 28ch; line-height: 1.55; }
+.step__body { color: var(--muted-dk); font-size: var(--fs-small); line-height: 1.6; }
 
 /* COMPARE */
 .compare { padding-block: var(--pad-y); }
@@ -372,26 +381,38 @@ section { padding-block: var(--pad-y); }
   font-size: .5625rem; letter-spacing: .1em; text-transform: uppercase;
   color: var(--muted); font-weight: 600;
 }
-.compare__val { font-size: .875rem; font-weight: 500; color: var(--muted); }
-.compare__cell--y .compare__val { color: var(--red); font-weight: 700; }
-.compare__cell--n .compare__val { color: var(--muted); }
+.compare__val { font-size: .875rem; font-weight: 500; color: var(--line); }
+.compare__cell--y .compare__val { color: var(--ink); font-weight: 600; }
+.compare__cell--n .compare__val { color: var(--line); }
+/* Pulso column highlight */
+.compare__cell--pulso { background: rgba(200,40,30,.04); padding: .5rem .75rem; margin-inline: -.75rem; }
+.compare__cell--pulso .compare__val { color: var(--red); font-weight: 700; font-size: 1rem; }
+.compare__hlbl--p {
+  display: flex; align-items: center; gap: .5rem;
+}
 @media (min-width: 760px) {
   .compare__hrow {
     display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
-    padding-bottom: 1rem; gap: 1rem;
+    padding-bottom: 1rem; gap: 1rem; border-bottom: 2px solid var(--line);
   }
   .compare__hlbl {
     font-size: var(--fs-label); letter-spacing: .14em;
     text-transform: uppercase; color: var(--muted); font-weight: 600;
   }
-  .compare__hlbl--p { color: var(--red); }
+  .compare__hlbl--p { color: var(--ink); font-weight: 700; }
+  .compare__hlbl-badge {
+    display: inline-block;
+    background: var(--red); color: #fff;
+    font-size: .45rem; letter-spacing: .1em; text-transform: uppercase;
+    font-weight: 700; padding: .2rem .5rem; line-height: 1;
+  }
   .compare__row { grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 1rem; align-items: center; }
   .compare__cells { display: contents; }
   .compare__cell { display: block; }
   .compare__cell-lbl { display: none; }
   .compare__val { font-size: .9375rem; }
-  .compare__row > *:nth-child(4) .compare__val,
-  .compare__cells > *:nth-child(3) .compare__val { font-weight: 700; }
+  .compare__cell--pulso { background: rgba(200,40,30,.05); padding: 1rem .75rem; margin-inline: -.75rem; }
+  .compare__cell--pulso .compare__val { font-size: 1rem; color: var(--red); }
 }
 
 /* OBJEÇÃO */
@@ -432,8 +453,24 @@ section { padding-block: var(--pad-y); }
 
 /* CTA */
 .cta { padding-block: var(--pad-y); }
-.cta__inner { display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); max-width: 24ch; }
-.cta__sub { color: var(--muted-dk); }
+.cta__inner {
+  display: flex; flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+@media (min-width: 760px) {
+  .cta__inner {
+    flex-direction: row; align-items: center;
+    justify-content: space-between; gap: clamp(3rem, 6vw, 7rem);
+  }
+}
+.cta__copy { display: flex; flex-direction: column; gap: 1rem; flex: 1; }
+.cta__h {
+  font-size: clamp(2rem, 4vw + .5rem, 3.5rem);
+  font-weight: 800; letter-spacing: -.035em; line-height: 1.05;
+  color: var(--bg); text-wrap: balance;
+}
+.cta__sub { color: var(--muted-dk); font-size: var(--fs-small); }
+.cta__action { flex-shrink: 0; }
 
 /* FOOTER */
 .foot {
@@ -1033,25 +1070,42 @@ section { padding-block: var(--pad-y); }
 <!-- ═══════════════════════════════ MÉTODO ═══════════════════════ -->
 <section id="metodo" class="dark">
   <div class="wrap">
-    <div class="metodo__head">
-      <h2 class="h1 r" style="color:var(--bg)">Como a gente faz seu açougue vender toda semana.</h2>
-    </div>
-    <div class="steps">
-      <article class="step r">
-        <span class="step__num">01 · Tráfego Meta</span>
-        <h3 class="step__title">Kit certo pra pessoa certa, na hora certa.</h3>
-        <p class="step__body">Anúncio que alcança quem mora perto e já quer comprar — não só na sexta antes do churrasco.</p>
-      </article>
-      <article class="step r" style="--d:80ms">
-        <span class="step__num">02 · CRM Kommo</span>
-        <h3 class="step__title">Cliente que comprou uma vez volta toda semana.</h3>
-        <p class="step__body">WhatsApp que lembra, avisa e converte. Sem spam. Sem forçar. Com o que ele já gosta.</p>
-      </article>
-      <article class="step r" style="--d:160ms">
-        <span class="step__num">03 · Conteúdo</span>
-        <h3 class="step__title">Seu açougue aparece quando o cliente está com fome.</h3>
-        <p class="step__body">Foto que vende. Texto que chega direto. Nada de reels dançando.</p>
-      </article>
+    <div class="metodo__inner">
+
+      <!-- Heading fixo à esquerda -->
+      <div class="metodo__head">
+        <span class="label r" style="color:var(--muted-dk)">O MÉTODO</span>
+        <h2 class="h1 r" style="--d:60ms">Como a gente faz seu açougue vender toda semana.</h2>
+      </div>
+
+      <!-- Steps empilhados à direita -->
+      <div class="steps">
+        <article class="step r">
+          <span class="step__num">01</span>
+          <div class="step__content">
+            <p class="step__num" style="font-size:.6875rem; color:var(--muted-dk); margin-bottom:.25rem; letter-spacing:.06em">Tráfego Meta</p>
+            <h3 class="step__title">Kit certo pra pessoa certa, na hora certa.</h3>
+            <p class="step__body">Anúncio que alcança quem mora perto e já quer comprar — não só na sexta antes do churrasco.</p>
+          </div>
+        </article>
+        <article class="step r" style="--d:80ms">
+          <span class="step__num">02</span>
+          <div class="step__content">
+            <p class="step__num" style="font-size:.6875rem; color:var(--muted-dk); margin-bottom:.25rem; letter-spacing:.06em">CRM Kommo</p>
+            <h3 class="step__title">Cliente que comprou uma vez volta toda semana.</h3>
+            <p class="step__body">WhatsApp que lembra, avisa e converte. Sem spam. Sem forçar. Com o que ele já gosta.</p>
+          </div>
+        </article>
+        <article class="step r" style="--d:160ms">
+          <span class="step__num">03</span>
+          <div class="step__content">
+            <p class="step__num" style="font-size:.6875rem; color:var(--muted-dk); margin-bottom:.25rem; letter-spacing:.06em">Conteúdo</p>
+            <h3 class="step__title">Seu açougue aparece quando o cliente está com fome.</h3>
+            <p class="step__body">Foto que vende. Texto que chega direto. Nada de reels dançando.</p>
+          </div>
+        </article>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1066,7 +1120,7 @@ section { padding-block: var(--pad-y); }
         <span class="compare__hlbl"></span>
         <span class="compare__hlbl">Você sozinho</span>
         <span class="compare__hlbl">Agência tradicional</span>
-        <span class="compare__hlbl compare__hlbl--p">Pulso</span>
+        <span class="compare__hlbl compare__hlbl--p">Pulso <span class="compare__hlbl-badge">recomendado</span></span>
       </div>
 
       <div class="compare__row r">
@@ -1074,7 +1128,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">—</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -1082,7 +1136,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">às vezes</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -1090,7 +1144,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">—</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -1098,15 +1152,15 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">às vezes</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">genérico</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
         <span class="compare__crit">Encaixa na sua operação atual</span>
         <div class="compare__cells">
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">sim</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">quer mudar tudo</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -1114,7 +1168,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">depois de 3 meses</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
     </div>
@@ -1166,14 +1220,18 @@ section { padding-block: var(--pad-y); }
 
 <!-- ═══════════════════════════════ CTA FINAL ════════════════════ -->
 <section class="cta dark">
-  <div class="wrap cta__inner">
-    <h2 class="display r" style="color:var(--bg)">Sua quarta-feira ainda está fraca?</h2>
-    <p class="cta__sub r" style="--d:80ms">Diagnóstico gratuito de 30 minutos. Sem compromisso.</p>
-    <div class="r" style="--d:160ms">
-      <a href="/diagnostico" class="btn">
-        Fazer o diagnóstico gratuito
-        <span class="btn__arr" aria-hidden="true">→</span>
-      </a>
+  <div class="wrap">
+    <div class="cta__inner">
+      <div class="cta__copy">
+        <h2 class="cta__h r">Sua quarta-feira ainda está fraca?</h2>
+        <p class="cta__sub r" style="--d:60ms">Diagnóstico gratuito de 30 minutos. Sem compromisso.</p>
+      </div>
+      <div class="cta__action r" style="--d:120ms">
+        <a href="/diagnostico" class="btn">
+          Fazer o diagnóstico gratuito
+          <span class="btn__arr" aria-hidden="true">→</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
