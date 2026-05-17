@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pulso · Marketing para açougue com delivery — diagnóstico gratuito</title>
+<meta name="description" content="A Pulso é a agência de marketing para açougue de bairro com delivery. Tráfego pago, CRM no WhatsApp e conteúdo — resultado no primeiro mês. Diagnóstico gratuito.">
+<meta name="keywords" content="marketing para açougue, açougue com delivery, tráfego pago açougue, CRM açougue, marketing açougue de bairro, agência de marketing açougue">
+<meta property="og:title" content="Pulso · Marketing para açougue com delivery">
+<meta property="og:description" content="Diagnóstico gratuito. Resultado no primeiro mês. Sem mudar nada na sua operação.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://pulso.ag/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Em quanto tempo eu vejo resultado?","acceptedAnswer":{"@type":"Answer","text":"No primeiro mês. A Pulso desenha o diagnóstico, sobe campanha e ativa o CRM na primeira semana."}},
+    {"@type":"Question","name":"Quanto custa?","acceptedAnswer":{"@type":"Answer","text":"O diagnóstico é gratuito, 30 minutos. Depois, o plano fixo cabe no caixa de um açougue de bairro."}},
+    {"@type":"Question","name":"Preciso ter Instagram com muito seguidor?","acceptedAnswer":{"@type":"Answer","text":"Não. A Pulso trabalha com tráfego pago direto pra quem mora perto do seu açougue."}},
+    {"@type":"Question","name":"E se eu já trabalho com uma agência?","acceptedAnswer":{"@type":"Answer","text":"A gente faz o diagnóstico do mesmo jeito e mostra onde você pode estar perdendo dinheiro."}},
+    {"@type":"Question","name":"Vocês atendem fora de São Paulo?","acceptedAnswer":{"@type":"Answer","text":"Sim. O método é o mesmo em qualquer cidade onde tem açougue de bairro com delivery."}},
+    {"@type":"Question","name":"E se não funcionar?","acceptedAnswer":{"@type":"Answer","text":"Sem fidelização. Você sai quando quiser."}}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --bg:        #F5F5F3;
+    --ink:       #0C0C0C;
+    --surface:   #1A1A1A;
+    --muted:     #6B6B6B;
+    --muted-dk:  #8A8A8A;   /* muted on dark surfaces, slight lift for legibility */
+    --line:      #E5E5E3;
+    --line-dk:   #2A2A2A;
+    --red:       #C8281E;
+
+    /* fluid type scale — mobile baseline → desktop ceiling */
+    --fs-display: clamp(2.5rem, 8vw + 0.5rem, 6.5rem);   /* hero & cta final */
+    --fs-h1:      clamp(2rem,   5.5vw + 0.5rem, 4rem);   /* section titles */
+    --fs-h2:      clamp(1.5rem, 3vw + 0.5rem, 2.25rem);  /* card titles, smaller heads */
+    --fs-stat:    clamp(3rem,   10vw + 0.5rem, 7.5rem);  /* +38% headline */
+    --fs-body:    clamp(1rem,   0.6vw + 0.9rem, 1.25rem);
+    --fs-lead:    clamp(1.125rem, 1vw + 1rem, 1.5rem);
+    --fs-eyebrow: 0.75rem;
+
+    /* spacing */
+    --pad-x:    clamp(1.25rem, 4vw, 4rem);
+    --pad-y:    clamp(4rem, 9vw, 8rem);
+    --gap-stack: clamp(1rem, 2vw, 1.75rem);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Geist", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection { background: var(--red); color: #fff; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Layout ---------- */
+  .wrap {
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: var(--pad-x);
+  }
+
+  section {
+    padding-block: var(--pad-y);
+  }
+
+  /* ---------- Logo ---------- */
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--logo-ink, var(--ink));
+    --logo-bg: var(--bg);  /* the slit/counter color — match surrounding bg */
+  }
+  .logo__mark {
+    width: 1.4em;
+    height: 1.4em;
+    display: block;
+    flex-shrink: 0;
+  }
+  .logo__word {
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--line);
+    /* logo over white bg */
+    --logo-bg: #FFFFFF;
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 64px;
+  }
+  .nav__links {
+    display: none;
+    gap: 2rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+  .nav__links a {
+    color: var(--ink);
+    opacity: 0.85;
+    transition: opacity .15s ease;
+  }
+  .nav__links a:hover { opacity: 1; }
+
+  .nav__cta {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 0.55rem 0.9rem;
+    border-radius: 0;
+    white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+  }
+  .nav__cta:hover { background: var(--red); color: #fff; }
+
+  @media (min-width: 820px) {
+    .nav__inner { height: 76px; }
+    .nav__links { display: flex; }
+    .nav__cta {
+      font-size: 0.9375rem;
+      padding: 0.7rem 1.1rem;
+      background: var(--red);
+      color: #fff;
+    }
+    .nav__cta:hover { background: #A6201A; border-color: #A6201A; }
+  }
+
+  /* ---------- Typography helpers ---------- */
+  .eyebrow {
+    display: inline-block;
+    color: var(--red);
+    font-weight: 600;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .eyebrow--muted { color: var(--muted); }
+
+  .display {
+    font-weight: 800;
+    font-size: var(--fs-display);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .h1 {
+    font-weight: 700;
+    font-size: var(--fs-h1);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .h2 {
+    font-weight: 600;
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    margin: 0;
+  }
+  .lead {
+    font-size: var(--fs-lead);
+    color: var(--muted);
+    max-width: 38ch;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .lead--dk { color: var(--muted-dk); }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    background: var(--red);
+    color: #fff;
+    font-weight: 600;
+    font-size: clamp(1rem, 0.4vw + 0.95rem, 1.125rem);
+    padding: 1rem 1.4rem;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+    line-height: 1;
+  }
+  .btn:hover { background: #A6201A; }
+  .btn:active { transform: translateY(1px); }
+  .btn__arrow { transition: transform .2s ease; }
+  .btn:hover .btn__arrow { transform: translateX(3px); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding-top: clamp(3rem, 7vw, 6rem);
+    padding-bottom: clamp(5rem, 11vw, 10rem);
+  }
+  .hero__stack { display: flex; flex-direction: column; gap: clamp(1.25rem, 2.5vw, 2rem); }
+  .hero__head  { display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.25rem); max-width: 22ch; }
+
+  /* ---------- DOR (dark) ---------- */
+  .dor {
+    background: var(--ink);
+    color: var(--bg);
+    --logo-bg: var(--ink);
+    --logo-ink: var(--bg);
+  }
+  .dor__head { max-width: 24ch; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+  .dor__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 720px) {
+    .dor__cards { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  }
+  .card {
+    background: var(--surface);
+    border-left: 3px solid var(--red);
+    padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .card__title {
+    font-weight: 600;
+    font-size: clamp(1.1rem, 1vw + 0.9rem, 1.375rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .card__body {
+    color: var(--muted-dk);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  /* ---------- PROVA ---------- */
+  .prova__inner { display: flex; flex-direction: column; gap: clamp(1.25rem, 2.5vw, 2rem); max-width: 920px; }
+  .stat {
+    font-weight: 800;
+    font-size: var(--fs-stat);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .stat__caption { color: var(--muted); font-size: 1rem; margin: 0; }
+  .quote {
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    border-left: 3px solid var(--red);
+    padding-left: clamp(1rem, 2vw, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 36ch;
+  }
+  .quote__text {
+    font-size: clamp(1.25rem, 1.5vw + 1rem, 1.75rem);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.018em;
+    margin: 0;
+  }
+  .quote__cite { color: var(--muted); font-size: 0.9375rem; margin: 0; }
+  .footnote { color: var(--muted); font-size: 0.8125rem; margin-top: 1.5rem; max-width: 50ch; }
+
+  /* ---------- MÉTODO ---------- */
+  .metodo__head { max-width: 22ch; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 3vw, 2.5rem);
+  }
+  @media (min-width: 820px) {
+    .steps { grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 3vw, 3rem); }
+  }
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+  }
+  .step__num {
+    color: var(--red);
+    font-weight: 700;
+    font-size: clamp(1rem, 0.5vw + 0.9rem, 1.125rem);
+    letter-spacing: 0.02em;
+  }
+  .step__title {
+    font-weight: 700;
+    font-size: clamp(1.375rem, 1.2vw + 1.1rem, 1.75rem);
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.1;
+  }
+  .step__body { color: var(--muted); margin: 0; max-width: 28ch; }
+
+  /* ---------- OBJEÇÃO (dark) ---------- */
+  .obj {
+    background: var(--surface);
+    color: var(--bg);
+    text-align: center;
+    --logo-bg: var(--surface);
+    --logo-ink: var(--bg);
+  }
+  .obj__inner {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    max-width: 38ch;
+    margin-inline: auto;
+    align-items: center;
+  }
+  .obj__head {
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .obj__body { color: var(--muted-dk); margin: 0; max-width: 36ch; }
+
+  /* ---------- CTA FINAL (dark) ---------- */
+  .cta {
+    background: var(--ink);
+    color: var(--bg);
+    --logo-bg: var(--ink);
+    --logo-ink: var(--bg);
+  }
+  .cta__inner { display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); max-width: 24ch; }
+  .cta__sub { color: var(--muted-dk); max-width: 40ch; margin: 0; }
+
+  /* ---------- FOOTER ---------- */
+  .foot {
+    background: var(--ink);
+    color: var(--bg);
+    border-top: 1px solid var(--line-dk);
+    padding-block: clamp(2rem, 4vw, 3rem);
+    --logo-bg: var(--ink);
+    --logo-ink: var(--bg);
+  }
+  .foot__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .foot__meta, .foot__tag {
+    color: var(--muted-dk);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  @media (min-width: 820px) {
+    .foot__inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .foot__meta { text-align: center; flex: 1; }
+    .foot__tag  { text-align: right; }
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    padding-block: clamp(1.25rem, 2.5vw, 2rem);
+    /* Override section padding */
+    margin: 0;
+  }
+  .marquee__viewport {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .marquee__track {
+    display: flex;
+    gap: clamp(2rem, 4vw, 4rem);
+    flex-shrink: 0;
+    align-items: center;
+    animation: marquee-scroll 38s linear infinite;
+    white-space: nowrap;
+    padding-right: clamp(2rem, 4vw, 4rem);
+  }
+  .marquee__item {
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3.5vw + 0.5rem, 3rem);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .marquee__sign {
+    color: var(--red);
+    margin-right: 0.15em;
+  }
+  .marquee__dot {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-100% - clamp(2rem, 4vw, 4rem))); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+  }
+
+  /* ---------- STATS / COUNTERS ---------- */
+  .stats { padding-block: clamp(3rem, 6vw, 6rem); }
+  .stats__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 3vw, 3rem);
+  }
+  @media (min-width: 820px) {
+    .stats__grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .stat-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+  .stat-cell__num {
+    font-weight: 800;
+    font-size: clamp(2.75rem, 6vw + 0.5rem, 4.5rem);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.05em;
+  }
+  .stat-cell__prefix,
+  .stat-cell__suffix {
+    color: var(--red);
+  }
+  .stat-cell__suffix--small {
+    font-size: 0.5em;
+    color: var(--muted);
+    margin-left: 0.2em;
+    letter-spacing: -0.01em;
+  }
+  .stat-cell__label {
+    color: var(--muted);
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    max-width: 22ch;
+    margin: 0;
+  }
+
+  /* ---------- COMPARAÇÃO ---------- */
+  .compare { padding-block: var(--pad-y); }
+  .compare__head {
+    max-width: 22ch;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .compare__table {
+    border-top: 1px solid var(--line);
+  }
+  .compare__header-row {
+    display: none;
+  }
+  .compare__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare__criteria {
+    font-weight: 600;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .compare__cells {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .compare__cell {
+    font-size: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .compare__cell-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .compare__cell-value {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .compare__cell--yes .compare__cell-value {
+    color: var(--red);
+    font-weight: 700;
+  }
+  .compare__cell--no .compare__cell-value {
+    color: var(--muted);
+  }
+  @media (min-width: 760px) {
+    .compare__header-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      padding-bottom: 1rem;
+      gap: 1rem;
+    }
+    .compare__header-cell {
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .compare__header-cell--pulso {
+      color: var(--red);
+    }
+    .compare__row {
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .compare__cells {
+      display: contents;
+    }
+    .compare__cell {
+      display: block;
+      font-size: 0.9375rem;
+    }
+    .compare__cell-label { display: none; }
+    .compare__cell-value { font-size: 0.9375rem; }
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq__head {
+    max-width: 22ch;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .faq__list {
+    border-top: 1px solid var(--line);
+  }
+  .faq__item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq__item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+    font-weight: 600;
+    font-size: clamp(1.0625rem, 0.8vw + 1rem, 1.375rem);
+    letter-spacing: -0.015em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__icon {
+    color: var(--red);
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 1rem;
+    text-align: center;
+    transition: transform .25s ease;
+  }
+  .faq__item[open] .faq__icon {
+    transform: rotate(45deg);
+  }
+  .faq__answer {
+    color: var(--muted);
+    padding-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+    max-width: 60ch;
+    margin: 0;
+    line-height: 1.55;
+    font-size: 1rem;
+  }
+
+  /* ---------- Scroll fade ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .7s ease, transform .7s ease;
+    transition-delay: var(--delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- A11y ---------- */
+  :focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== NAV ====================== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="wrap nav__inner">
+    <a href="#" class="logo" aria-label="Pulso — início">
+      <svg class="logo__mark" viewBox="0 0 100 100" aria-hidden="true">
+        <!-- Bowl + stem of lowercase p -->
+        <mask id="nav-slit">
+          <rect width="100" height="100" fill="white"/>
+          <!-- horizontal aperture cuts straight through the bowl -->
+          <rect x="0" y="36.5" width="100" height="5" fill="black"/>
+        </mask>
+        <g mask="url(#nav-slit)" fill="currentColor">
+          <circle cx="52" cy="40" r="32"/>
+          <rect x="12" y="8" width="14" height="88" rx="1.5"/>
+        </g>
+        <!-- inner counter (negative space in the bowl) -->
+        <circle cx="52" cy="40" r="15" fill="var(--logo-bg)"/>
+      </svg>
+      <span class="logo__word">pulso</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#metodo">O método</a>
+      <a href="#cases">Cases</a>
+      <a href="#planos">Planos</a>
+    </nav>
+
+    <a href="/diagnostico" class="nav__cta">Diagnóstico gratuito →</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero" data-screen-label="01 Hero">
+    <div class="wrap hero__stack">
+      <span class="eyebrow reveal">MARKETING PARA AÇOUGUE · DELIVERY</span>
+
+      <div class="hero__head">
+        <h1 class="display reveal" style="--delay:60ms">
+          Seu açougue abre todo dia.<br>
+          Mas vende igual todo dia?
+        </h1>
+        <p class="lead reveal" style="--delay:140ms">
+          A gente identifica onde seu açougue está perdendo dinheiro durante a semana — e resolve isso no primeiro mês.
+        </p>
+      </div>
+
+      <div class="reveal" style="--delay:220ms">
+        <a href="/diagnostico" class="btn">
+          Quero o diagnóstico gratuito
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================== MARQUEE ====================== -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee__viewport">
+      <div class="marquee__track">
+        <span class="marquee__item"><span class="marquee__sign">+</span>PEDIDOS NA SEMANA</span>
+        <span class="marquee__dot" aria-hidden="true"></span>
+        <span class="marquee__item"><span class="marquee__sign">−</span>QUARTA FRACA</span>
+        <span class="marquee__dot" aria-hidden="true"></span>
+        <span class="marquee__item"><span class="marquee__sign">+</span>RECORRÊNCIA</span>
+        <span class="marquee__dot" aria-hidden="true"></span>
+        <span class="marquee__item"><span class="marquee__sign">−</span>DESCONTO IMPROVISADO</span>
+        <span class="marquee__dot" aria-hidden="true"></span>
+        <span class="marquee__item"><span class="marquee__sign">+</span>WHATSAPP QUE VENDE</span>
+        <span class="marquee__dot" aria-hidden="true"></span>
+        <span class="marquee__item"><span class="marquee__sign">−</span>RUÍDO</span>
+        <span class="marquee__dot" aria-hidden="true"></span>
+      </div>
+      <div class="marquee__track" aria-hidden="true">
+        <span class="marquee__item"><span class="marquee__sign">+</span>PEDIDOS NA SEMANA</span>
+        <span class="marquee__dot"></span>
+        <span class="marquee__item"><span class="marquee__sign">−</span>QUARTA FRACA</span>
+        <span class="marquee__dot"></span>
+        <span class="marquee__item"><span class="marquee__sign">+</span>RECORRÊNCIA</span>
+        <span class="marquee__dot"></span>
+        <span class="marquee__item"><span class="marquee__sign">−</span>DESCONTO IMPROVISADO</span>
+        <span class="marquee__dot"></span>
+        <span class="marquee__item"><span class="marquee__sign">+</span>WHATSAPP QUE VENDE</span>
+        <span class="marquee__dot"></span>
+        <span class="marquee__item"><span class="marquee__sign">−</span>RUÍDO</span>
+        <span class="marquee__dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== DOR ====================== -->
+  <section class="dor" data-screen-label="02 Dor">
+    <div class="wrap">
+      <h2 class="h1 dor__head reveal">Você reconhece alguma dessas situações?</h2>
+      <div class="dor__cards">
+        <article class="card reveal">
+          <h3 class="card__title">Quarta-feira fraca todo mês</h3>
+          <p class="card__body">O fim de semana salva, mas a semana pesa.</p>
+        </article>
+        <article class="card reveal" style="--delay:80ms">
+          <h3 class="card__title">Cliente compra uma vez e some</h3>
+          <p class="card__body">Ele veio, gostou — e nunca mais voltou.</p>
+        </article>
+        <article class="card reveal" style="--delay:160ms">
+          <h3 class="card__title">Anúncio rodando, pedido não vem</h3>
+          <p class="card__body">Verba saindo, resultado não aparece.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== PROVA ====================== -->
+  <section id="cases" class="prova" data-screen-label="03 Prova">
+    <div class="wrap prova__inner">
+      <span class="eyebrow reveal">RESULTADO · CLIENTE ATIVO · 2026</span>
+
+      <h2 class="stat reveal" style="--delay:60ms">+38% de pedidos no primeiro mês.</h2>
+      <p class="stat__caption reveal" style="--delay:120ms">Açougue de bairro com delivery · São Paulo</p>
+
+      <figure class="quote reveal" style="--delay:200ms">
+        <blockquote class="quote__text">"A semana parou de ser problema."</blockquote>
+        <figcaption class="quote__cite">— Dona do açougue, cliente ativo</figcaption>
+      </figure>
+
+      <p class="footnote reveal" style="--delay:260ms">
+        Resultado real. Números serão atualizados com o case documentado.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================== STATS / CONTADORES ====================== -->
+  <section class="stats" data-screen-label="Stats">
+    <div class="wrap">
+      <div class="stats__head">
+        <span class="eyebrow reveal">A PULSO EM NÚMEROS</span>
+      </div>
+      <div class="stats__grid">
+        <div class="stat-cell reveal">
+          <span class="stat-cell__num">
+            <span class="stat-cell__num-val" data-count="1">0</span>
+          </span>
+          <p class="stat-cell__label">Açougue ativo na rua, hoje.</p>
+        </div>
+        <div class="stat-cell reveal" style="--delay:80ms">
+          <span class="stat-cell__num">
+            <span class="stat-cell__prefix">+</span><span class="stat-cell__num-val" data-count="38">0</span><span class="stat-cell__prefix">%</span>
+          </span>
+          <p class="stat-cell__label">Pedidos a mais no primeiro mês.</p>
+        </div>
+        <div class="stat-cell reveal" style="--delay:160ms">
+          <span class="stat-cell__num">
+            <span class="stat-cell__num-val" data-count="30">0</span><span class="stat-cell__suffix--small">min</span>
+          </span>
+          <p class="stat-cell__label">Diagnóstico gratuito, sem compromisso.</p>
+        </div>
+        <div class="stat-cell reveal" style="--delay:240ms">
+          <span class="stat-cell__num">
+            <span class="stat-cell__prefix">R$</span><span class="stat-cell__num-val" data-count="0">0</span>
+          </span>
+          <p class="stat-cell__label">Pra começar. Você só paga se decidir ir adiante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== MÉTODO ====================== -->
+  <section id="metodo" class="metodo" data-screen-label="04 Método">
+    <div class="wrap">
+      <h2 class="h1 metodo__head reveal">Como a gente faz seu açougue vender toda semana.</h2>
+
+      <div class="steps">
+        <article class="step reveal">
+          <span class="step__num">01 · Tráfego Meta</span>
+          <h3 class="step__title">Kit certo pra pessoa certa, na hora certa.</h3>
+        </article>
+        <article class="step reveal" style="--delay:80ms">
+          <span class="step__num">02 · CRM Kommo</span>
+          <h3 class="step__title">Cliente que comprou uma vez volta toda semana.</h3>
+        </article>
+        <article class="step reveal" style="--delay:160ms">
+          <span class="step__num">03 · Conteúdo</span>
+          <h3 class="step__title">Seu açougue aparece quando o cliente está com fome.</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== COMPARAÇÃO ====================== -->
+  <section id="compare" class="compare" data-screen-label="Comparação">
+    <div class="wrap">
+      <h2 class="h1 compare__head reveal">Pulso vs. o que existe hoje.</h2>
+
+      <div class="compare__table">
+        <div class="compare__header-row" aria-hidden="true">
+          <span class="compare__header-cell"></span>
+          <span class="compare__header-cell">Você sozinho</span>
+          <span class="compare__header-cell">Agência tradicional</span>
+          <span class="compare__header-cell compare__header-cell--pulso">Pulso</span>
+        </div>
+
+        <div class="compare__row reveal">
+          <span class="compare__criteria">Conhece açougue de bairro</span>
+          <div class="compare__cells">
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Você sozinho</span><span class="compare__cell-value">—</span></span>
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Agência tradicional</span><span class="compare__cell-value">—</span></span>
+            <span class="compare__cell compare__cell--yes"><span class="compare__cell-label">Pulso</span><span class="compare__cell-value">sim</span></span>
+          </div>
+        </div>
+
+        <div class="compare__row reveal">
+          <span class="compare__criteria">Tráfego segmentado pra delivery</span>
+          <div class="compare__cells">
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Você sozinho</span><span class="compare__cell-value">—</span></span>
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Agência tradicional</span><span class="compare__cell-value">às vezes</span></span>
+            <span class="compare__cell compare__cell--yes"><span class="compare__cell-label">Pulso</span><span class="compare__cell-value">sim</span></span>
+          </div>
+        </div>
+
+        <div class="compare__row reveal">
+          <span class="compare__criteria">CRM no WhatsApp pra recompra</span>
+          <div class="compare__cells">
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Você sozinho</span><span class="compare__cell-value">—</span></span>
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Agência tradicional</span><span class="compare__cell-value">—</span></span>
+            <span class="compare__cell compare__cell--yes"><span class="compare__cell-label">Pulso</span><span class="compare__cell-value">sim</span></span>
+          </div>
+        </div>
+
+        <div class="compare__row reveal">
+          <span class="compare__criteria">Conteúdo de Instagram que vende</span>
+          <div class="compare__cells">
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Você sozinho</span><span class="compare__cell-value">às vezes</span></span>
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Agência tradicional</span><span class="compare__cell-value">genérico</span></span>
+            <span class="compare__cell compare__cell--yes"><span class="compare__cell-label">Pulso</span><span class="compare__cell-value">sim</span></span>
+          </div>
+        </div>
+
+        <div class="compare__row reveal">
+          <span class="compare__criteria">Encaixa na sua operação atual</span>
+          <div class="compare__cells">
+            <span class="compare__cell compare__cell--yes"><span class="compare__cell-label">Você sozinho</span><span class="compare__cell-value">sim</span></span>
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Agência tradicional</span><span class="compare__cell-value">quer mudar tudo</span></span>
+            <span class="compare__cell compare__cell--yes"><span class="compare__cell-label">Pulso</span><span class="compare__cell-value">sim</span></span>
+          </div>
+        </div>
+
+        <div class="compare__row reveal">
+          <span class="compare__criteria">Resultado mensurável no 1º mês</span>
+          <div class="compare__cells">
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Você sozinho</span><span class="compare__cell-value">—</span></span>
+            <span class="compare__cell compare__cell--no"><span class="compare__cell-label">Agência tradicional</span><span class="compare__cell-value">depois de 3 meses</span></span>
+            <span class="compare__cell compare__cell--yes"><span class="compare__cell-label">Pulso</span><span class="compare__cell-value">sim</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== OBJEÇÃO ====================== -->
+  <section class="obj" data-screen-label="05 Objeção">
+    <div class="wrap obj__inner">
+      <h2 class="obj__head reveal">Não precisa mudar nada na sua operação.</h2>
+      <p class="obj__body reveal" style="--delay:80ms">
+        A gente encaixa no que você já tem. WhatsApp, delivery, Instagram — a Pulso organiza e faz render mais.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================== FAQ ====================== -->
+  <section id="faq" class="faq" data-screen-label="FAQ">
+    <div class="wrap">
+      <h2 class="h1 faq__head reveal">Perguntas frequentes.</h2>
+
+      <div class="faq__list">
+        <details class="faq__item reveal">
+          <summary>
+            Em quanto tempo eu vejo resultado?
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="faq__answer">No primeiro mês. A Pulso desenha o diagnóstico, sobe campanha e ativa o CRM na primeira semana — o resto da semana é ajuste fino baseado nos pedidos que começam a entrar.</p>
+        </details>
+
+        <details class="faq__item reveal">
+          <summary>
+            Quanto custa?
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="faq__answer">O diagnóstico é gratuito, 30 minutos. Depois, o plano fixo cabe no caixa de um açougue de bairro — a gente fala números direto no diagnóstico, sem joguinho.</p>
+        </details>
+
+        <details class="faq__item reveal">
+          <summary>
+            Preciso ter um Instagram com muito seguidor?
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="faq__answer">Não. Seguidor não paga conta. A Pulso trabalha com tráfego pago direto pra quem mora perto do seu açougue — funciona com Instagram zerado.</p>
+        </details>
+
+        <details class="faq__item reveal">
+          <summary>
+            E se eu já trabalho com uma agência?
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="faq__answer">A gente faz o diagnóstico do mesmo jeito. Se o que a sua agência faz tá funcionando, a gente fala. Se não tá, a gente mostra onde — e você decide.</p>
+        </details>
+
+        <details class="faq__item reveal">
+          <summary>
+            Vocês atendem fora de São Paulo?
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="faq__answer">Sim. O método é o mesmo em qualquer cidade onde tem açougue de bairro com delivery. Operamos remoto, com reunião semanal.</p>
+        </details>
+
+        <details class="faq__item reveal">
+          <summary>
+            E se não funcionar?
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="faq__answer">Sem fidelização. Você sai quando quiser. O nosso trabalho é fazer você querer ficar.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== CTA FINAL ====================== -->
+  <section class="cta" data-screen-label="06 CTA Final">
+    <div class="wrap cta__inner">
+      <h2 class="display reveal">Sua quarta-feira ainda está fraca?</h2>
+      <p class="cta__sub reveal" style="--delay:80ms">
+        Diagnóstico gratuito de 30 minutos. Sem compromisso.
+      </p>
+      <div class="reveal" style="--delay:160ms">
+        <a href="/diagnostico" class="btn">
+          Fazer o diagnóstico gratuito
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap foot__inner">
+    <a href="#" class="logo" aria-label="Pulso">
+      <svg class="logo__mark" viewBox="0 0 100 100" aria-hidden="true">
+        <mask id="foot-slit">
+          <rect width="100" height="100" fill="white"/>
+          <rect x="0" y="36.5" width="100" height="5" fill="black"/>
+        </mask>
+        <g mask="url(#foot-slit)" fill="currentColor">
+          <circle cx="52" cy="40" r="32"/>
+          <rect x="12" y="8" width="14" height="88" rx="1.5"/>
+        </g>
+        <circle cx="52" cy="40" r="15" fill="var(--logo-bg)"/>
+      </svg>
+      <span class="logo__word">pulso</span>
+    </a>
+    <p class="foot__meta">pulso.ag · Marketing para açougue com delivery</p>
+    <p class="foot__tag">Sinal, não ruído.</p>
+  </div>
+</footer>
+
+<script>
+  // Subtle fade-in on scroll
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(el => el.classList.add('is-in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => io.observe(el));
+  })();
+
+  // Counter animation
+  (function () {
+    const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const run = (el) => {
+      const target = parseFloat(el.dataset.count);
+      if (reduce || !('IntersectionObserver' in window)) { el.textContent = target; return; }
+      const duration = 1400;
+      const t0 = performance.now();
+      function tick(now) {
+        const t = Math.min(1, (now - t0) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const val = Math.round(target * eased);
+        el.textContent = val;
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    };
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(run);
+      return;
+    }
+    const cio = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          run(e.target);
+          cio.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.4 });
+    counters.forEach(c => cio.observe(c));
+  })();
+</script>
+</body>
+</html>

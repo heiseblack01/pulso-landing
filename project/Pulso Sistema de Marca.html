@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pulso · Sistema de Marca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pulso-black:   #0C0C0C;
+      --pulso-surface: #1A1A1A;
+      --pulso-muted:   #6B6B6B;
+      --pulso-white:   #F5F5F3;
+      --pulso-red:     #C8281E;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Geist", system-ui, -apple-system, sans-serif;
+      background: var(--pulso-black);
+      color: var(--pulso-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    html { scroll-behavior: smooth; }
+    /* anchor offset for sticky-feeling nav */
+    section[id] { scroll-margin-top: 24px; }
+    a { color: inherit; }
+    ::selection { background: var(--pulso-red); color: var(--pulso-white); }
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--pulso-black); }
+    ::-webkit-scrollbar-thumb { background: var(--pulso-surface); border-radius: 0; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--pulso-muted); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Tokens (plain JS, must load first) -->
+  <script src="brand/tokens.js"></script>
+
+  <!-- Marca + shell -->
+  <script type="text/babel" src="brand/marks.jsx"></script>
+  <script type="text/babel" src="brand/shell.jsx"></script>
+
+  <!-- Sections -->
+  <script type="text/babel" src="brand/sections-logo.jsx"></script>
+  <script type="text/babel" src="brand/sections-cores.jsx"></script>
+  <script type="text/babel" src="brand/sections-tipo.jsx"></script>
+  <script type="text/babel" src="brand/sections-voz.jsx"></script>
+  <script type="text/babel" src="brand/sections-apps.jsx"></script>
+
+  <!-- Compose -->
+  <script type="text/babel" src="brand/book.jsx"></script>
+</body>
+</html>

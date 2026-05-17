@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.57 166.80" width="130.57" height="166.80" role="img" aria-label="Pulso">
+  <defs>
+    
+  </defs>
+  <g transform="translate(15.286000000000001,0) scale(1.0000)">
+    <defs>
+      <mask id="cut-v">
+        <rect width="100" height="100" fill="white"></rect>
+        <circle cx="52" cy="38" r="15" fill="black"></circle>
+        <rect x="12" y="37" width="76" height="4.5" fill="black"></rect>
+      </mask>
+    </defs>
+    <g mask="url(#cut-v)" fill="#0C0C0C">
+      <circle cx="52" cy="38" r="32"></circle>
+      <rect x="12" y="6" width="14" height="88" rx="1.5"></rect>
+    </g>
+  </g>
+  <text x="3.90" y="157.96" font-family="Geist, system-ui, sans-serif" font-weight="500" font-size="52" letter-spacing="-0.045em" fill="#0C0C0C">pulso</text>
+</svg>

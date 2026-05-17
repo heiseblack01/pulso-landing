@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pulso · Logo Assets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0C0C0C; --surface: #1A1A1A; --muted: #6B6B6B;
+      --white: #F5F5F3; --red: #C8281E;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--black); color: var(--white); font-family: "Geist", system-ui, sans-serif; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 64px 48px 96px; }
+    header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 72px; }
+    header img { height: 28px; }
+    .mono { font-family: "Geist Mono", monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    h1 { font-family: "Geist", sans-serif; font-weight: 700; font-size: 48px; letter-spacing: -0.03em; margin: 0 0 12px; line-height: 1.05; }
+    .lead { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.55; margin: 0; }
+    section { margin-top: 80px; }
+    h2 { font-family: "Geist", sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -0.02em; margin: 0 0 6px; }
+    h2 + .desc { font-size: 14px; color: var(--muted); margin: 0 0 28px; max-width: 560px; line-height: 1.5; }
+    .grid { display: grid; gap: 14px; }
+    .grid.c4 { grid-template-columns: repeat(4, 1fr); }
+    .grid.c3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.c2 { grid-template-columns: repeat(2, 1fr); }
+    .card {
+      background: var(--surface); padding: 32px 24px;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+      min-height: 220px; gap: 18px;
+    }
+    .card.on-light { background: var(--white); }
+    .card.on-red   { background: var(--red); }
+    .card .holder { display: flex; align-items: center; justify-content: center; flex: 1; width: 100%; }
+    .card .holder img { max-width: 80%; max-height: 120px; display: block; }
+    .card .meta { width: 100%; display: flex; justify-content: space-between; align-items: baseline; font-family: "Geist Mono", monospace; font-size: 10px; letter-spacing: 0.04em; color: var(--muted); }
+    .card.on-light .meta { color: rgba(12,12,12,0.55); }
+    .card.on-red   .meta { color: rgba(255,255,255,0.65); }
+    .meta .file { letter-spacing: 0; font-family: "Geist Mono", monospace; }
+    .filelist { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
+    .filelist h3 { font-size: 13px; font-weight: 600; letter-spacing: -0.005em; margin: 0 0 12px; color: var(--white); }
+    .filelist ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+    .filelist li { font-family: "Geist Mono", monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.02em; display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #222; }
+    .filelist a { color: var(--white); text-decoration: none; }
+    .filelist a:hover { color: var(--red); }
+    footer { margin-top: 96px; padding-top: 24px; border-top: 1px solid #222; display: flex; justify-content: space-between; font-family: "Geist Mono", monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.04em; }
+    .pill { display: inline-block; padding: 4px 10px; border: 1px solid var(--muted); border-radius: 999px; color: var(--white); text-decoration: none; font-family: "Geist", sans-serif; font-size: 12px; letter-spacing: -0.005em; }
+    .pill:hover { border-color: var(--red); color: var(--red); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="svg/pulso-lockup-h-white.svg" alt="Pulso"/>
+      <span class="mono">Logo assets · v1 · 2026</span>
+    </header>
+
+    <h1>Logo files.</h1>
+    <p class="lead">Todas as variantes do logo em SVG (vetor) e PNG (transparente). Use o SVG sempre que possível — escala perfeitamente. PNG transparente para apresentações, posts e onde SVG não rola.</p>
+
+    <!-- SÍMBOLO -->
+    <section>
+      <h2>Símbolo</h2>
+      <p class="desc">P minúsculo com fresta horizontal. Cinco variantes cromáticas. Use o símbolo isolado em favicons, app icons e avatares.</p>
+      <div class="grid c4">
+        <div class="card"><div class="holder"><img src="svg/pulso-mark-white.svg" alt=""/></div><div class="meta"><span class="file">mark-white</span><span>svg · png</span></div></div>
+        <div class="card on-light"><div class="holder"><img src="svg/pulso-mark-black.svg" alt=""/></div><div class="meta"><span class="file">mark-black</span><span>svg · png</span></div></div>
+        <div class="card"><div class="holder"><img src="svg/pulso-mark-white-pulse.svg" alt=""/></div><div class="meta"><span class="file">mark-white-pulse</span><span>svg · png</span></div></div>
+        <div class="card on-light"><div class="holder"><img src="svg/pulso-mark-black-pulse.svg" alt=""/></div><div class="meta"><span class="file">mark-black-pulse</span><span>svg · png</span></div></div>
+      </div>
+      <div class="grid c4" style="margin-top: 14px;">
+        <div class="card on-red"><div class="holder"><img src="svg/pulso-mark-on-red.svg" alt="" style="background: var(--red);"/></div><div class="meta"><span class="file">mark-on-red</span><span>svg · png</span></div></div>
+      </div>
+    </section>
+
+    <!-- WORDMARK -->
+    <section>
+      <h2>Wordmark</h2>
+      <p class="desc">"pulso" em Geist 500, tracking −0.045em, sempre caixa baixa. Os SVGs referenciam Geist via Google Fonts — funcionam em web; para Figma/Illustrator, instale a fonte ou converta em curvas.</p>
+      <div class="grid c2">
+        <div class="card"><div class="holder"><img src="svg/pulso-wordmark-white.svg" alt=""/></div><div class="meta"><span class="file">wordmark-white</span><span>svg · png</span></div></div>
+        <div class="card on-light"><div class="holder"><img src="svg/pulso-wordmark-black.svg" alt=""/></div><div class="meta"><span class="file">wordmark-black</span><span>svg · png</span></div></div>
+      </div>
+    </section>
+
+    <!-- LOCKUPS -->
+    <section>
+      <h2>Lockups</h2>
+      <p class="desc">Símbolo + wordmark em duas composições. Horizontal é o padrão; vertical para espaços quadrados.</p>
+      <div class="grid c2">
+        <div class="card"><div class="holder"><img src="svg/pulso-lockup-h-white.svg" alt=""/></div><div class="meta"><span class="file">lockup-h-white</span><span>svg · png</span></div></div>
+        <div class="card on-light"><div class="holder"><img src="svg/pulso-lockup-h-black.svg" alt=""/></div><div class="meta"><span class="file">lockup-h-black</span><span>svg · png</span></div></div>
+      </div>
+      <div class="grid c2" style="margin-top: 14px;">
+        <div class="card" style="min-height: 320px;"><div class="holder"><img src="svg/pulso-lockup-v-white.svg" alt="" style="max-height: 200px;"/></div><div class="meta"><span class="file">lockup-v-white</span><span>svg · png</span></div></div>
+        <div class="card on-light" style="min-height: 320px;"><div class="holder"><img src="svg/pulso-lockup-v-black.svg" alt="" style="max-height: 200px;"/></div><div class="meta"><span class="file">lockup-v-black</span><span>svg · png</span></div></div>
+      </div>
+    </section>
+
+    <!-- LISTA -->
+    <section>
+      <h2>Lista de arquivos</h2>
+      <p class="desc">Veja o <a href="README.md" style="color: var(--white);">README.md</a> para detalhes de uso.</p>
+      <div class="filelist">
+        <div>
+          <h3>SVG (11)</h3>
+          <ul>
+            <li><a href="svg/pulso-mark-white.svg">mark-white.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-mark-black.svg">mark-black.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-mark-white-pulse.svg">mark-white-pulse.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-mark-black-pulse.svg">mark-black-pulse.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-mark-on-red.svg">mark-on-red.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-wordmark-white.svg">wordmark-white.svg</a><span>1 KB</span></li>
+            <li><a href="svg/pulso-wordmark-black.svg">wordmark-black.svg</a><span>1 KB</span></li>
+            <li><a href="svg/pulso-lockup-h-white.svg">lockup-h-white.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-lockup-h-black.svg">lockup-h-black.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-lockup-v-white.svg">lockup-v-white.svg</a><span>2 KB</span></li>
+            <li><a href="svg/pulso-lockup-v-black.svg">lockup-v-black.svg</a><span>2 KB</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>PNG (34) · fundo transparente</h3>
+          <ul>
+            <li><span>mark-white-{256,512,1024,2048}.png</span><span>×4</span></li>
+            <li><span>mark-black-{256,512,1024,2048}.png</span><span>×4</span></li>
+            <li><span>mark-white-pulse-{256…2048}.png</span><span>×4</span></li>
+            <li><span>mark-black-pulse-{256…2048}.png</span><span>×4</span></li>
+            <li><span>mark-on-red-{256…2048}.png</span><span>×4</span></li>
+            <li><span>wordmark-{white,black}-{461,922}h.png</span><span>×4</span></li>
+            <li><span>lockup-h-{white,black}-{256,512,1024}h.png</span><span>×6</span></li>
+            <li><span>lockup-v-{white,black}-{512,1024}m.png</span><span>×4</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>pulso · marketing de açougue</span>
+      <span>logo assets · v1 · 2026</span>
+    </footer>
+  </div>
+</body>
+</html>
