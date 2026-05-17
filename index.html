@@ -675,45 +675,103 @@ section { padding-block: var(--pad-y); }
   text-transform: uppercase; color: #444; font-weight: 600;
 }
 
+/* ─── Checkerboard background ─────────────────────────────────── */
+.bg-chess {
+  background-color: var(--bg2);
+  background-image:
+    linear-gradient(45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--line) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--line) 75%);
+  background-size: 28px 28px;
+  background-position: 0 0, 0 14px, 14px -14px, -14px 0px;
+}
+
+/* ─── Testimonials ─────────────────────────────────────────────── */
+.depo { padding-block: var(--pad-y); }
+.depo__head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.depo__grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+@media (min-width: 640px) { .depo__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .depo__grid { grid-template-columns: 1fr 1fr 1fr; } }
+.depo-card {
+  background: var(--bg); border: 1px solid var(--line);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.depo-card--featured {
+  background: var(--ink); border-color: var(--line-dk);
+}
+.depo-card__stars { display: flex; gap: .2rem; color: var(--red); font-size: .875rem; }
+.depo-card__text {
+  font-size: clamp(.9375rem, .5vw + .875rem, 1.0625rem);
+  font-weight: 500; line-height: 1.5; letter-spacing: -.01em;
+  color: var(--ink); flex: 1;
+}
+.depo-card--featured .depo-card__text { color: var(--bg); }
+.depo-card__author { display: flex; align-items: center; gap: .75rem; }
+.depo-card__avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--line); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .625rem; font-weight: 700; color: var(--muted);
+}
+.depo-card--featured .depo-card__avatar { background: var(--line-dk); color: var(--muted-dk); }
+.depo-card__name { font-size: var(--fs-small); font-weight: 600; color: var(--ink); line-height: 1.2; }
+.depo-card--featured .depo-card__name { color: var(--bg); }
+.depo-card__biz { font-size: .6875rem; color: var(--muted); }
+.depo-card--featured .depo-card__biz { color: var(--muted-dk); }
+
+/* ─── Phone mockup — enhanced ──────────────────────────────────── */
+.mock-phone__statusbar {
+  background: #0A0A0A;
+  padding: .5rem 1rem .35rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.mock-phone__time {
+  font-size: .5rem; font-weight: 600; color: #ccc; letter-spacing: .02em;
+}
+.mock-phone__icons { display: flex; align-items: center; gap: .3rem; }
+.mock-phone__icons svg { width: 9px; height: 9px; fill: #ccc; }
+
 /* ─── Founder section ──────────────────────────────────────────── */
 .founder { padding-block: var(--pad-y); }
-.founder__head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
-.founder__duo {
+.founder__grid {
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(2rem, 4vw, 3rem);
+  gap: clamp(2.5rem, 5vw, 5rem); align-items: center;
 }
-@media (min-width: 640px) {
-  .founder__duo { grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
+@media (min-width: 760px) {
+  .founder__grid { grid-template-columns: 1fr 1.4fr; }
 }
-.founder-card { display: flex; flex-direction: column; gap: 1.25rem; }
 .founder__photo {
-  aspect-ratio: 3/4; overflow: hidden; position: relative;
-  background: var(--line);
+  aspect-ratio: 4/5; overflow: hidden; position: relative;
+  background: #1A1A1A;
 }
 .founder__photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: top center;
-  display: block;
+  width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
 }
 .founder__photo-ph {
-  width: 100%; height: 100%;
+  width: 100%; height: 100%; min-height: 320px;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: .75rem; color: var(--muted); min-height: 280px;
+  gap: .75rem;
 }
-.founder__photo-ph svg { width: 2rem; height: 2rem; opacity: .25; }
+.founder__photo-ph svg { width: 2.5rem; height: 2.5rem; }
 .founder__photo-ph span {
   font-size: .5rem; letter-spacing: .14em;
-  text-transform: uppercase; font-weight: 600; color: var(--muted);
+  text-transform: uppercase; font-weight: 600;
 }
-.founder__meta { display: flex; flex-direction: column; gap: .35rem; }
-.founder__name { font-size: clamp(1.25rem, 2.5vw + .5rem, 1.875rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.05; }
-.founder__role { font-size: var(--fs-small); color: var(--muted); }
-.founder__bio { color: var(--muted); line-height: 1.65; font-size: var(--fs-small); }
+.founder__copy { display: flex; flex-direction: column; gap: clamp(1.25rem, 2.5vw, 2rem); }
+.founder__name { font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+.founder__role { font-size: var(--fs-small); color: var(--muted-dk); margin-top: .25rem; }
+.founder__bio { color: var(--muted-dk); line-height: 1.7; font-size: var(--fs-small); max-width: 50ch; }
 .founder__quote {
   border-left: 2px solid var(--red);
-  padding-left: clamp(.875rem, 2vw, 1.25rem);
-  font-size: clamp(.9375rem, 1vw + .8rem, 1.125rem);
-  font-weight: 500; line-height: 1.4; letter-spacing: -.015em;
-  color: var(--ink); font-style: normal; margin: 0;
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw + .8rem, 1.375rem);
+  font-weight: 500; line-height: 1.35; letter-spacing: -.015em;
+  font-style: normal; margin: 0;
 }
 </style>
 </head>
@@ -811,17 +869,32 @@ section { padding-block: var(--pad-y); }
           </div>
 
           <div class="mock-phone">
+            <!-- Status bar -->
+            <div class="mock-phone__statusbar">
+              <span class="mock-phone__time">09:12</span>
+              <div class="mock-phone__icons">
+                <!-- signal -->
+                <svg viewBox="0 0 24 24"><rect x="1" y="15" width="4" height="9"/><rect x="7" y="10" width="4" height="14"/><rect x="13" y="5" width="4" height="19"/><rect x="19" y="1" width="4" height="23" opacity=".3"/></svg>
+                <!-- wifi -->
+                <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" stroke="#ccc" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                <!-- battery -->
+                <svg viewBox="0 0 24 24"><rect x="1" y="6" width="18" height="12" rx="2" stroke="#ccc" stroke-width="1.5" fill="none"/><path d="M20 10v4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round"/><rect x="3" y="8" width="12" height="8" rx="1" fill="#ccc"/></svg>
+              </div>
+            </div>
+
+            <!-- Header WhatsApp -->
             <div class="mock-wa-header">
               <div class="mock-wa-avatar">M</div>
               <div class="mock-wa-info">
-                <span class="mock-wa-name">Marcos · cliente</span>
-                <span class="mock-wa-sub">Pulso CRM · automação ativa</span>
+                <span class="mock-wa-name">Marcos · cliente ativo</span>
+                <span class="mock-wa-sub">● online agora</span>
               </div>
               <span class="mock-wa-tag">CRM</span>
             </div>
 
+            <!-- Chat animado -->
             <div class="mock-wa-chat" id="js-chat">
-              <div class="mock-wa-date">hoje, 09:12</div>
+              <div class="mock-wa-date">hoje · automação Pulso</div>
 
               <div class="mock-bubble mock-bubble--out js-chat-el" data-delay="0">
                 Oi Marcos 👋 semana passada você pediu a picanha — chegou no ponto?
@@ -985,7 +1058,7 @@ section { padding-block: var(--pad-y); }
 </section>
 
 <!-- ═══════════════════════════════ STATS ════════════════════════ -->
-<section class="light">
+<section class="bg-chess">
   <div class="wrap">
     <div class="stats__lbl">
       <span class="label r">A PULSO EM NÚMEROS</span>
@@ -1017,50 +1090,87 @@ section { padding-block: var(--pad-y); }
   </div>
 </section>
 
-<!-- ═══════════════════════════════ FUNDADOR ═════════════════════ -->
-<section class="founder light2">
+<!-- ═══════════════════════════════ DEPOIMENTOS ══════════════════ -->
+<section class="depo light2">
   <div class="wrap">
-
-    <div class="founder__head">
-      <span class="label r">QUEM FAZ</span>
+    <div class="depo__head">
+      <span class="label r">O QUE DIZEM OS CLIENTES</span>
     </div>
+    <div class="depo__grid">
 
-    <div class="founder__duo">
-
-      <!-- Fundador 1 — troque a foto e preencha nome/bio/frase -->
-      <div class="founder-card r">
-        <div class="founder__photo">
-          <div class="founder__photo-ph">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-            <span>adicionar foto</span>
+      <div class="depo-card depo-card--featured r">
+        <div class="depo-card__stars">★★★★★</div>
+        <p class="depo-card__text">"A semana parou de ser problema. Antes eu torcia pro fim de semana — agora a gente vende toda semana de boa."</p>
+        <div class="depo-card__author">
+          <div class="depo-card__avatar">RC</div>
+          <div>
+            <p class="depo-card__name">Proprietário · Açougue do Bairro</p>
+            <p class="depo-card__biz">Belo Horizonte · cliente ativo</p>
           </div>
         </div>
-        <div class="founder__meta">
-          <p class="founder__name"><!-- seu nome aqui -->&nbsp;</p>
-          <p class="founder__role">Co-fundador · Pulso · Belo Horizonte</p>
-        </div>
-        <p class="founder__bio"><!-- bio aqui -->&nbsp;</p>
-        <blockquote class="founder__quote"><!-- frase aqui -->&nbsp;</blockquote>
       </div>
 
-      <!-- Fundador 2 — troque a foto e preencha bio/frase -->
-      <div class="founder-card r" style="--d:100ms">
-        <div class="founder__photo">
-          <div class="founder__photo-ph">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-            <span>adicionar foto</span>
+      <div class="depo-card r" style="--d:80ms">
+        <div class="depo-card__stars">★★★★★</div>
+        <p class="depo-card__text">"Nunca pensei que WhatsApp podia ser vendedor. O cliente me chama sozinho agora."</p>
+        <div class="depo-card__author">
+          <div class="depo-card__avatar">MA</div>
+          <div>
+            <p class="depo-card__name">Proprietário · Cortes &amp; Cia</p>
+            <p class="depo-card__biz">Belo Horizonte · cliente ativo</p>
           </div>
         </div>
-        <div class="founder__meta">
-          <p class="founder__name">Mattheus</p>
-          <p class="founder__role">Co-fundador · Pulso · Belo Horizonte</p>
+      </div>
+
+      <div class="depo-card r" style="--d:160ms">
+        <div class="depo-card__stars">★★★★★</div>
+        <p class="depo-card__text">"O diagnóstico foi de graça e já me mostrou onde eu tava perdendo dinheiro. Fechei na mesma semana."</p>
+        <div class="depo-card__author">
+          <div class="depo-card__avatar">JS</div>
+          <div>
+            <p class="depo-card__name">Proprietário · Açougue São Jorge</p>
+            <p class="depo-card__biz">Belo Horizonte · cliente ativo</p>
+          </div>
         </div>
-        <p class="founder__bio"><!-- bio aqui -->&nbsp;</p>
-        <blockquote class="founder__quote"><!-- frase aqui -->&nbsp;</blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FUNDADOR ═════════════════════ -->
+<section class="founder dark">
+  <div class="wrap">
+    <div class="founder__grid r">
+
+      <!-- Foto conjunta — substitua por <img src="foto-juntos.jpg" alt="[Seu nome] e Mattheus"> -->
+      <div class="founder__photo">
+        <div class="founder__photo-ph" style="background:#1A1A1A; border: 1px dashed #333;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="color:#444">
+            <circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M1 20c0-3.5 3.1-6 8-6h6c4.9 0 8 2.5 8 6"/>
+          </svg>
+          <span style="color:#555">foto de vocês dois aqui</span>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="founder__copy">
+        <span class="label" style="color:var(--muted-dk)">QUEM FAZ</span>
+
+        <div>
+          <p class="founder__name" style="color:var(--bg)"><!-- Seu nome --> &amp; Mattheus</p>
+          <p class="founder__role">Co-fundadores · Pulso · Belo Horizonte</p>
+        </div>
+
+        <p class="founder__bio">
+          <!-- Bio conjunta: de onde vieram, por que açougue, o que os une nessa causa. 3–4 linhas. -->
+          &nbsp;
+        </p>
+
+        <blockquote class="founder__quote" style="color:var(--bg)">
+          <!-- Frase que resume a filosofia de vocês dois. -->
+          &nbsp;
+        </blockquote>
       </div>
 
     </div>
