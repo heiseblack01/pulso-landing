@@ -211,7 +211,8 @@ section { padding-block: var(--pad-y); }
 .hero__actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .hero__img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 4;
+  min-height: 380px;
   align-self: end;
 }
 @media (min-width: 900px) {
@@ -506,6 +507,10 @@ section { padding-block: var(--pad-y); }
 .hero__mock-wrap {
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; background: var(--ink); position: relative;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+@media (min-width: 900px) {
+  .hero__mock-wrap { padding: 3rem 2rem 0; align-items: flex-end; }
 }
 .mock-scene { position: relative; flex-shrink: 0; }
 
@@ -519,6 +524,9 @@ section { padding-block: var(--pad-y); }
   box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.06);
   animation: badge-float 4s ease-in-out infinite;
   z-index: 10; pointer-events: none; white-space: nowrap;
+}
+@media (max-width: 899px) {
+  .hero-float-badge { left: auto; right: -0.5rem; bottom: 1rem; }
 }
 @keyframes badge-float {
   0%, 100% { transform: translateY(0) rotate(-.4deg); }
@@ -560,7 +568,7 @@ section { padding-block: var(--pad-y); }
 /* Chat elements start hidden; JS drives them in */
 .js-chat-el { opacity: 0; transform: translateY(6px); }
 .mock-phone {
-  width: clamp(210px, 55%, 264px);
+  width: clamp(200px, 68%, 264px);
   background: #111;
   border-radius: 32px;
   border: 1px solid rgba(255,255,255,.07);
