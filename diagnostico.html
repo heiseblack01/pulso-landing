@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico gratuito · Pulso</title>
+  <meta name="description" content="11 perguntas. A gente analisa e entra em contato em até 2 horas com o que encontramos.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F5F5F3;
+      --ink:     #0C0C0C;
+      --surface: #1A1A1A;
+      --card:    #ECECEA;
+      --muted:   #6B6B6B;
+      --red:     #C8281E;
+      --line:    #D8D8D6;
+      --wa:      #25D366;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Geist', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── STEP WRAPPER ── */
+    .step { display: none; }
+    .step.active { display: flex; }
+
+    /* ════════════════════════════════
+       STEP 1 — CAPTURA
+    ════════════════════════════════ */
+    #step-1 {
+      min-height: 100dvh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2rem, 6vw, 4rem) 1.25rem;
+    }
+
+    .s1-inner {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* Logo */
+    .s1-logo {
+      display: block;
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+      text-decoration: none;
+    }
+    .s1-logo svg { height: 38px; width: auto; display: block; }
+
+    /* Badge label */
+    .s1-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Headline */
+    .s1-headline {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+      text-align: center;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    /* Sub */
+    .s1-sub {
+      font-size: clamp(.9rem, 2.2vw, 1rem);
+      color: var(--muted);
+      line-height: 1.65;
+      text-align: center;
+      max-width: 400px;
+      margin-bottom: clamp(2rem, 5vw, 2.75rem);
+    }
+
+    /* Form */
+    .s1-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: .875rem;
+    }
+
+    .s1-field {
+      display: flex;
+      flex-direction: column;
+      gap: .375rem;
+    }
+    .s1-field label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .s1-field input {
+      width: 100%;
+      padding: .9rem 1rem;
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .18s;
+      -webkit-appearance: none;
+    }
+    .s1-field input:focus { border-color: var(--ink); }
+    .s1-field input.error { border-color: var(--red); }
+    .s1-field input::placeholder { color: #ABABAB; }
+
+    .s1-error {
+      font-size: .75rem;
+      color: var(--red);
+      display: none;
+    }
+    .s1-field.has-error .s1-error { display: block; }
+
+    .s1-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--red);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity .15s;
+      margin-top: .25rem;
+    }
+    .s1-btn:hover { opacity: .88; }
+    .s1-btn:active { opacity: .75; }
+
+    .s1-note {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: .875rem;
+    }
+
+    /* ════════════════════════════════
+       STEP 2 — QUESTIONÁRIO
+    ════════════════════════════════ */
+    #step-2 {
+      flex-direction: column;
+      min-height: 100dvh;
+    }
+
+    /* Header fixo */
+    .q-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: .875rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .q-header-logo { flex-shrink: 0; }
+    .q-header-logo svg { height: 28px; width: auto; display: block; }
+
+    .q-progress-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .q-progress-track {
+      flex: 1;
+      height: 3px;
+      background: var(--line);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .q-progress-bar {
+      height: 100%;
+      background: var(--red);
+      border-radius: 99px;
+      width: 0%;
+      transition: width .4s cubic-bezier(.4,0,.2,1);
+    }
+    .q-progress-label {
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 3.5ch;
+      text-align: right;
+    }
+
+    /* Área de conteúdo das perguntas */
+    .q-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2rem, 6vw, 4rem) 1.25rem;
+    }
+
+    .q-card {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    /* Transições */
+    .q-slide {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      animation: qFadeIn .3s ease both;
+    }
+    .q-slide.active { display: flex; }
+
+    @keyframes qFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .q-block-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: .75rem;
+    }
+    .q-num {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .q-text {
+      font-size: clamp(1.15rem, 3.5vw, 1.5rem);
+      font-weight: 600;
+      letter-spacing: -.025em;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .q-choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+    }
+
+    .q-choice {
+      padding: 1.1rem 1rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color .15s, opacity .15s;
+      text-align: center;
+    }
+    .q-choice--sim {
+      background: var(--ink);
+      color: #fff;
+    }
+    .q-choice--nao {
+      background: var(--card);
+      color: var(--ink);
+    }
+    .q-choice.selected {
+      border-color: var(--red);
+    }
+    .q-choice:hover { opacity: .85; }
+
+    /* ════════════════════════════════
+       STEP 3 — RESULTADO
+    ════════════════════════════════ */
+    #step-3 {
+      flex-direction: column;
+      min-height: 100dvh;
+    }
+
+    .r-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+    }
+    .r-header svg { height: 28px; width: auto; display: block; }
+
+    .r-body {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: clamp(2.5rem, 7vw, 5rem) 1.25rem clamp(3rem, 8vw, 6rem);
+    }
+
+    .r-inner {
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .r-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+    .r-headline {
+      font-size: clamp(1.6rem, 5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+    .r-body-text {
+      font-size: clamp(.9rem, 2.2vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 46ch;
+      margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+    }
+
+    /* Card de gaps */
+    .r-gaps-card {
+      background: var(--surface);
+      border-left: 3px solid var(--red);
+      border-radius: 8px;
+      padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .r-gaps-title {
+      font-size: .8rem;
+      font-weight: 600;
+      color: #F5F5F3;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .r-gaps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .625rem;
+    }
+    .r-gaps-list li {
+      font-size: .9rem;
+      color: #ADADAD;
+      line-height: 1.45;
+      display: flex;
+      gap: .625rem;
+      align-items: flex-start;
+    }
+    .r-gaps-list li::before {
+      content: '·';
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: .05em;
+    }
+
+    /* Botão WhatsApp */
+    .r-wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .625rem;
+      width: 100%;
+      padding: 1.05rem 1rem;
+      background: var(--wa);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: opacity .15s;
+      margin-bottom: .875rem;
+    }
+    .r-wa-btn:hover { opacity: .88; }
+    .r-wa-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    /* Rodapé mínimo */
+    .r-footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      padding: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 400px) {
+      .q-choices { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .q-slide { animation: none; }
+      .q-progress-bar { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     STEP 1 — CAPTURA
+══════════════════════════════════════ -->
+<section id="step-1" class="step active">
+  <div class="s1-inner">
+
+    <a href="/" class="s1-logo" aria-label="Pulso — início">
+      <svg viewBox="0 0 349.10 100" role="img" aria-label="pulso" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0,11) scale(0.78)">
+          <defs>
+            <mask id="m1">
+              <rect width="100" height="100" fill="white"/>
+              <circle cx="52" cy="38" r="15" fill="black"/>
+              <rect x="12" y="37" width="76" height="4.5" fill="black"/>
+            </mask>
+          </defs>
+          <g mask="url(#m1)" fill="#0C0C0C">
+            <circle cx="52" cy="38" r="32"/>
+            <rect x="12" y="6" width="14" height="88" rx="1.5"/>
+          </g>
+        </g>
+        <text x="105.5" y="85.5" font-family="Geist, system-ui, sans-serif" font-weight="500" font-size="100" letter-spacing="-0.045em" fill="#0C0C0C">pulso</text>
+      </svg>
+    </a>
+
+    <p class="s1-label">Diagnóstico gratuito · 30 min</p>
+
+    <h1 class="s1-headline">Descubra por que seu açougue para na semana.</h1>
+
+    <p class="s1-sub">11 perguntas. A gente analisa e entra em contato em até 2 horas com o que encontramos.</p>
+
+    <form class="s1-form" id="capture-form" novalidate>
+      <div class="s1-field" id="field-nome">
+        <label for="inp-nome">Nome do açougue</label>
+        <input type="text" id="inp-nome" placeholder="Ex: Açougue do Zé" autocomplete="organization">
+        <span class="s1-error">Preencha o nome do açougue.</span>
+      </div>
+
+      <div class="s1-field" id="field-tel">
+        <label for="inp-tel">Seu WhatsApp</label>
+        <input type="tel" id="inp-tel" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric" maxlength="15">
+        <span class="s1-error">Preencha um número válido.</span>
+      </div>
+
+      <button type="submit" class="s1-btn">Fazer o diagnóstico →</button>
+
+      <p class="s1-note">Sem spam. Sem compromisso. Só o diagnóstico.</p>
+    </form>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     STEP 2 — QUESTIONÁRIO
+══════════════════════════════════════ -->
+<section id="step-2" class="step">
+
+  <header class="q-header">
+    <div class="q-header-logo">
+      <svg viewBox="0 0 349.10 100" role="img" aria-label="pulso" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0,11) scale(0.78)">
+          <defs>
+            <mask id="m2">
+              <rect width="100" height="100" fill="white"/>
+              <circle cx="52" cy="38" r="15" fill="black"/>
+              <rect x="12" y="37" width="76" height="4.5" fill="black"/>
+            </mask>
+          </defs>
+          <g mask="url(#m2)" fill="#0C0C0C">
+            <circle cx="52" cy="38" r="32"/>
+            <rect x="12" y="6" width="14" height="88" rx="1.5"/>
+          </g>
+        </g>
+        <text x="105.5" y="85.5" font-family="Geist, system-ui, sans-serif" font-weight="500" font-size="100" letter-spacing="-0.045em" fill="#0C0C0C">pulso</text>
+      </svg>
+    </div>
+    <div class="q-progress-wrap">
+      <div class="q-progress-track">
+        <div class="q-progress-bar" id="progress-bar"></div>
+      </div>
+      <span class="q-progress-label" id="progress-label">0%</span>
+    </div>
+  </header>
+
+  <div class="q-body">
+    <div class="q-card" id="questions-container">
+
+      <!-- Q1 -->
+      <div class="q-slide active" data-q="1" data-block="BLOCO 01 · OPERAÇÃO">
+        <p class="q-block-label">BLOCO 01 · OPERAÇÃO</p>
+        <p class="q-num">1 de 11</p>
+        <p class="q-text">Tenho delivery ativo — WhatsApp ou iFood.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-slide" data-q="2" data-block="BLOCO 01 · OPERAÇÃO">
+        <p class="q-block-label">BLOCO 01 · OPERAÇÃO</p>
+        <p class="q-num">2 de 11</p>
+        <p class="q-text">Meu cardápio tem foto e preço atualizados.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-slide" data-q="3" data-block="BLOCO 01 · OPERAÇÃO">
+        <p class="q-block-label">BLOCO 01 · OPERAÇÃO</p>
+        <p class="q-num">3 de 11</p>
+        <p class="q-text">Uso WhatsApp Business com catálogo de produtos.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-slide" data-q="4" data-block="BLOCO 01 · OPERAÇÃO">
+        <p class="q-block-label">BLOCO 01 · OPERAÇÃO</p>
+        <p class="q-num">4 de 11</p>
+        <p class="q-text">Tenho pelo menos 1 funcionário além de mim.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-slide" data-q="5" data-block="BLOCO 02 · VENDA ATIVA">
+        <p class="q-block-label">BLOCO 02 · VENDA ATIVA</p>
+        <p class="q-num">5 de 11</p>
+        <p class="q-text">Faço promoção ou oferta pelo menos 3x por semana.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-slide" data-q="6" data-block="BLOCO 02 · VENDA ATIVA">
+        <p class="q-block-label">BLOCO 02 · VENDA ATIVA</p>
+        <p class="q-num">6 de 11</p>
+        <p class="q-text">Tenho kit montado pra vender — não só peça avulsa.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="q-slide" data-q="7" data-block="BLOCO 02 · VENDA ATIVA">
+        <p class="q-block-label">BLOCO 02 · VENDA ATIVA</p>
+        <p class="q-num">7 de 11</p>
+        <p class="q-text">Anuncio no Meta Ads com verba mensal definida.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="q-slide" data-q="8" data-block="BLOCO 02 · VENDA ATIVA">
+        <p class="q-block-label">BLOCO 02 · VENDA ATIVA</p>
+        <p class="q-num">8 de 11</p>
+        <p class="q-text">Tenho calendário de ofertas pro mês.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="q-slide" data-q="9" data-block="BLOCO 03 · RECORRÊNCIA">
+        <p class="q-block-label">BLOCO 03 · RECORRÊNCIA</p>
+        <p class="q-num">9 de 11</p>
+        <p class="q-text">Tenho lista de clientes separada por frequência de compra.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="q-slide" data-q="10" data-block="BLOCO 03 · RECORRÊNCIA">
+        <p class="q-block-label">BLOCO 03 · RECORRÊNCIA</p>
+        <p class="q-num">10 de 11</p>
+        <p class="q-text">Mando mensagem diferente pra quem compra toda semana e pra quem sumiu.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="q-slide" data-q="11" data-block="BLOCO 03 · RECORRÊNCIA">
+        <p class="q-block-label">BLOCO 03 · RECORRÊNCIA</p>
+        <p class="q-num">11 de 11</p>
+        <p class="q-text">Sei quantos pedidos recebo por semana — tenho esse número.</p>
+        <div class="q-choices">
+          <button class="q-choice q-choice--sim" data-answer="sim">SIM</button>
+          <button class="q-choice q-choice--nao" data-answer="nao">NÃO</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     STEP 3 — RESULTADO
+══════════════════════════════════════ -->
+<section id="step-3" class="step">
+
+  <header class="r-header">
+    <svg viewBox="0 0 349.10 100" role="img" aria-label="pulso" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(0,11) scale(0.78)">
+        <defs>
+          <mask id="m3">
+            <rect width="100" height="100" fill="white"/>
+            <circle cx="52" cy="38" r="15" fill="black"/>
+            <rect x="12" y="37" width="76" height="4.5" fill="black"/>
+          </mask>
+        </defs>
+        <g mask="url(#m3)" fill="#0C0C0C">
+          <circle cx="52" cy="38" r="32"/>
+          <rect x="12" y="6" width="14" height="88" rx="1.5"/>
+        </g>
+      </g>
+      <text x="105.5" y="85.5" font-family="Geist, system-ui, sans-serif" font-weight="500" font-size="100" letter-spacing="-0.045em" fill="#0C0C0C">pulso</text>
+    </svg>
+  </header>
+
+  <div class="r-body">
+    <div class="r-inner">
+
+      <p class="r-eyebrow">Diagnóstico concluído</p>
+      <h2 class="r-headline" id="result-headline"></h2>
+      <p class="r-body-text" id="result-body"></p>
+
+      <div class="r-gaps-card">
+        <p class="r-gaps-title">Seus gaps identificados:</p>
+        <ul class="r-gaps-list" id="gaps-list"></ul>
+      </div>
+
+      <a href="#" class="r-wa-btn" id="wa-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Falar com a Pulso agora →
+      </a>
+
+    </div>
+  </div>
+
+  <footer class="r-footer">pulso.ag · Sinal, não ruído.</footer>
+
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── State ──
+  var nome = '';
+  var tel  = '';
+  var answers = {}; // { 1: 'sim'|'nao', ... }
+  var current = 1;
+  var total   = 11;
+
+  var QUESTIONS = [
+    'Tenho delivery ativo — WhatsApp ou iFood.',
+    'Meu cardápio tem foto e preço atualizados.',
+    'Uso WhatsApp Business com catálogo de produtos.',
+    'Tenho pelo menos 1 funcionário além de mim.',
+    'Faço promoção ou oferta pelo menos 3x por semana.',
+    'Tenho kit montado pra vender — não só peça avulsa.',
+    'Anuncio no Meta Ads com verba mensal definida.',
+    'Tenho calendário de ofertas pro mês.',
+    'Tenho lista de clientes separada por frequência de compra.',
+    'Mando mensagem diferente pra quem compra toda semana e pra quem sumiu.',
+    'Sei quantos pedidos recebo por semana — tenho esse número.'
+  ];
+
+  var WA_NUMBER = '5531999999999';
+
+  // ── Helpers ──
+  function $(id) { return document.getElementById(id); }
+
+  function showStep(n) {
+    document.querySelectorAll('.step').forEach(function (s) {
+      s.classList.remove('active');
+    });
+    $('step-' + n).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── Phone mask ──
+  var telInput = $('inp-tel');
+  telInput.addEventListener('input', function () {
+    var v = this.value.replace(/\D/g, '').slice(0, 11);
+    var m = '';
+    if (v.length > 0) m = '(' + v.slice(0, 2);
+    if (v.length >= 3) m += ') ' + v.slice(2, 7);
+    if (v.length >= 8) m += '-' + v.slice(7, 11);
+    this.value = m;
+  });
+
+  // ── Step 1 submit ──
+  $('capture-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nomeVal = $('inp-nome').value.trim();
+    var telVal  = $('inp-tel').value.trim();
+    var ok = true;
+
+    var fnome = $('field-nome');
+    var ftel  = $('field-tel');
+    fnome.classList.remove('has-error');
+    ftel.classList.remove('has-error');
+    $('inp-nome').classList.remove('error');
+    $('inp-tel').classList.remove('error');
+
+    if (!nomeVal) {
+      fnome.classList.add('has-error');
+      $('inp-nome').classList.add('error');
+      ok = false;
+    }
+    if (telVal.replace(/\D/g, '').length < 10) {
+      ftel.classList.add('has-error');
+      $('inp-tel').classList.add('error');
+      ok = false;
+    }
+
+    if (!ok) return;
+
+    nome = nomeVal;
+    tel  = telVal;
+    showStep(2);
+  });
+
+  // ── Progress update ──
+  function updateProgress(answered) {
+    var pct = Math.round((answered / total) * 100);
+    $('progress-bar').style.width = pct + '%';
+    $('progress-label').textContent = pct + '%';
+  }
+
+  // ── Question navigation ──
+  function showQuestion(n) {
+    document.querySelectorAll('.q-slide').forEach(function (s) {
+      s.classList.remove('active');
+    });
+    var slide = document.querySelector('.q-slide[data-q="' + n + '"]');
+    if (slide) slide.classList.add('active');
+    updateProgress(n - 1);
+  }
+
+  // Answer buttons
+  document.querySelectorAll('.q-choice').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var slide = this.closest('.q-slide');
+      var q     = parseInt(slide.getAttribute('data-q'), 10);
+      var ans   = this.getAttribute('data-answer');
+
+      // Visual feedback
+      slide.querySelectorAll('.q-choice').forEach(function (b) {
+        b.classList.remove('selected');
+      });
+      this.classList.add('selected');
+
+      answers[q] = ans;
+
+      setTimeout(function () {
+        if (q < total) {
+          current = q + 1;
+          showQuestion(current);
+        } else {
+          showResult();
+        }
+      }, 400);
+    });
+  });
+
+  // ── Build result ──
+  function showResult() {
+    updateProgress(total);
+
+    var nao = 0;
+    var gaps = [];
+    for (var i = 1; i <= total; i++) {
+      if (answers[i] === 'nao') {
+        nao++;
+        gaps.push(QUESTIONS[i - 1]);
+      }
+    }
+
+    var headline, body;
+
+    if (nao <= 2) {
+      headline = 'Seu açougue tem uma base sólida.';
+      body = 'Mas ainda tem espaço pra crescer. Um diagnóstico de 30 min mostra exatamente onde estão os próximos R$ a capturar.';
+    } else if (nao <= 5) {
+      headline = 'Seu açougue está deixando dinheiro na mesa.';
+      body = 'Identificamos ' + nao + ' ponto' + (nao > 1 ? 's' : '') + ' crítico' + (nao > 1 ? 's' : '') + '. Açougues nesse perfil crescem em média 38% nos primeiros 30 dias com a Pulso.';
+    } else {
+      headline = 'Seu açougue tem potencial — mas precisa de estrutura.';
+      body = nao + ' pontos críticos identificados. A gente já viu esse perfil antes. E resolve no primeiro mês.';
+    }
+
+    $('result-headline').textContent = headline;
+    $('result-body').textContent     = body;
+
+    var list = $('gaps-list');
+    list.innerHTML = '';
+    if (gaps.length === 0) {
+      var li = document.createElement('li');
+      li.textContent = 'Nenhum gap identificado — açougue bem estruturado!';
+      list.appendChild(li);
+    } else {
+      gaps.forEach(function (g) {
+        var li = document.createElement('li');
+        li.textContent = g;
+        list.appendChild(li);
+      });
+    }
+
+    // WhatsApp link
+    var gapLines = gaps.map(function (g, i) {
+      return (i + 1) + '. ' + g;
+    }).join('\n');
+
+    var msg = [
+      'Olá! Acabei de fazer o diagnóstico da Pulso.',
+      '',
+      '🏪 Açougue: ' + nome,
+      '📱 WhatsApp: ' + tel,
+      '',
+      '❌ Meus gaps:',
+      gapLines || '(nenhum gap identificado)',
+      '',
+      '📊 Resultado: ' + nao + ' de 11 pontos a resolver.'
+    ].join('\n');
+
+    var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    $('wa-btn').href = waUrl;
+
+    showStep(3);
+  }
+
+})();
+</script>
+
+</body>
+</html>

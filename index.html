@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Pulso · Marketing para açougue com delivery — diagnóstico gratuito</title>
 <meta name="description" content="A Pulso é a agência de marketing para açougue de bairro com delivery. Tráfego pago, CRM no WhatsApp e conteúdo — resultado no primeiro mês. Diagnóstico gratuito.">
-<meta name="keywords" content="marketing para açougue, açougue com delivery, tráfego pago açougue, CRM açougue, marketing açougue de bairro, agência de marketing açougue">
+<meta name="keywords" content="marketing para açougue, açougue com delivery, tráfego pago açougue, CRM açougue, marketing açougue de bairro, agência de marketing açougue, marketing açougue belo horizonte, açougue delivery bh">
 <meta property="og:title" content="Pulso · Marketing para açougue com delivery">
 <meta property="og:description" content="Diagnóstico gratuito. Resultado no primeiro mês. Sem mudar nada na sua operação.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://pulso.ag/">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Em quanto tempo eu vejo resultado?","acceptedAnswer":{"@type":"Answer","text":"No primeiro mês. A Pulso desenha o diagnóstico, sobe campanha e ativa o CRM na primeira semana."}},{"@type":"Question","name":"Quanto custa?","acceptedAnswer":{"@type":"Answer","text":"O diagnóstico é gratuito, 30 minutos. Depois, o plano fixo cabe no caixa de um açougue de bairro."}},{"@type":"Question","name":"Preciso ter Instagram com muito seguidor?","acceptedAnswer":{"@type":"Answer","text":"Não. A Pulso trabalha com tráfego pago direto pra quem mora perto do seu açougue."}},{"@type":"Question","name":"E se eu já trabalho com uma agência?","acceptedAnswer":{"@type":"Answer","text":"A gente faz o diagnóstico do mesmo jeito e mostra onde você pode estar perdendo dinheiro."}},{"@type":"Question","name":"Vocês atendem fora de São Paulo?","acceptedAnswer":{"@type":"Answer","text":"Sim. O método é o mesmo em qualquer cidade onde tem açougue de bairro com delivery."}},{"@type":"Question","name":"E se não funcionar?","acceptedAnswer":{"@type":"Answer","text":"Sem fidelização. Você sai quando quiser."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Em quanto tempo eu vejo resultado?","acceptedAnswer":{"@type":"Answer","text":"No primeiro mês. A Pulso desenha o diagnóstico, sobe campanha e ativa o CRM na primeira semana."}},{"@type":"Question","name":"Quanto custa?","acceptedAnswer":{"@type":"Answer","text":"O diagnóstico é gratuito, 30 minutos. Depois, o plano fixo cabe no caixa de um açougue de bairro."}},{"@type":"Question","name":"Preciso ter Instagram com muito seguidor?","acceptedAnswer":{"@type":"Answer","text":"Não. A Pulso trabalha com tráfego pago direto pra quem mora perto do seu açougue."}},{"@type":"Question","name":"E se eu já trabalho com uma agência?","acceptedAnswer":{"@type":"Answer","text":"A gente faz o diagnóstico do mesmo jeito e mostra onde você pode estar perdendo dinheiro."}},{"@type":"Question","name":"Vocês atendem fora de Belo Horizonte?","acceptedAnswer":{"@type":"Answer","text":"Sim. O método funciona em qualquer cidade onde tem açougue de bairro com delivery. Operamos remoto, com reunião semanal."}},{"@type":"Question","name":"E se não funcionar?","acceptedAnswer":{"@type":"Answer","text":"Sem fidelização. Você sai quando quiser."}}]}
 </script>
 
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -211,15 +212,16 @@ section { padding-block: var(--pad-y); }
 .hero__actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .hero__img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 4;
+  min-height: 380px;
   align-self: end;
 }
 @media (min-width: 900px) {
   .hero__img {
-    aspect-ratio: 2 / 3;
-    min-height: 520px;
+    aspect-ratio: 9 / 16;
+    min-height: 540px;
+    max-height: 700px;
     align-self: stretch;
-    margin-top: calc(-1 * clamp(3rem, 7vw, 6rem));
   }
 }
 
@@ -330,27 +332,36 @@ section { padding-block: var(--pad-y); }
 .stat-cell__lbl { color: var(--muted); font-size: var(--fs-small); line-height: 1.4; max-width: 22ch; }
 
 /* MÉTODO */
-.metodo__head { max-width: 28ch; margin-bottom: clamp(3rem, 6vw, 5rem); }
-.steps {
+/* ─── Método — two-col sticky layout ─── */
+.metodo__inner {
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(2rem, 3vw, 2.5rem);
+  gap: clamp(2.5rem, 5vw, 4rem);
 }
-@media (min-width: 820px) { .steps { grid-template-columns: repeat(3,1fr); } }
+@media (min-width: 820px) {
+  .metodo__inner { grid-template-columns: 2fr 3fr; gap: clamp(4rem, 8vw, 9rem); align-items: start; }
+  .metodo__head { position: sticky; top: calc(72px + 3rem); }
+}
+.metodo__head { display: flex; flex-direction: column; gap: 1.25rem; }
+.metodo__head .h1 { color: var(--bg); font-size: clamp(1.75rem, 3vw + .5rem, 2.75rem); }
+.steps { display: flex; flex-direction: column; border-top: 1px solid var(--line-dk); }
 .step {
-  display: flex; flex-direction: column; gap: .75rem;
-  padding-top: 1.5rem; border-top: 1px solid var(--line-dk);
+  display: grid; grid-template-columns: 2.5rem 1fr;
+  gap: 1rem 1.5rem; align-items: start;
+  padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-bottom: 1px solid var(--line-dk);
 }
 .step__num {
   font-size: var(--fs-label); font-weight: 600;
   letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted-dk);
+  color: var(--red); padding-top: .3em; line-height: 1;
 }
+.step__content { display: flex; flex-direction: column; gap: .5rem; }
 .step__title {
-  font-size: clamp(1.25rem, 1.5vw + 1rem, 1.75rem);
-  font-weight: 700; letter-spacing: -.02em; line-height: 1.1;
+  font-size: clamp(1.125rem, 1.5vw + .8rem, 1.5rem);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.15;
   color: var(--bg);
 }
-.step__body { color: var(--muted-dk); font-size: var(--fs-small); max-width: 28ch; line-height: 1.55; }
+.step__body { color: var(--muted-dk); font-size: var(--fs-small); line-height: 1.6; }
 
 /* COMPARE */
 .compare { padding-block: var(--pad-y); }
@@ -373,25 +384,37 @@ section { padding-block: var(--pad-y); }
   color: var(--muted); font-weight: 600;
 }
 .compare__val { font-size: .875rem; font-weight: 500; color: var(--muted); }
-.compare__cell--y .compare__val { color: var(--red); font-weight: 700; }
+.compare__cell--y .compare__val { color: var(--ink); font-weight: 600; }
 .compare__cell--n .compare__val { color: var(--muted); }
+/* Pulso column highlight */
+.compare__cell--pulso { background: rgba(200,40,30,.04); padding: .5rem .75rem; margin-inline: -.75rem; }
+.compare__cell--pulso .compare__val { color: var(--red); font-weight: 700; font-size: 1rem; }
+.compare__hlbl--p {
+  display: flex; align-items: center; gap: .5rem;
+}
 @media (min-width: 760px) {
   .compare__hrow {
     display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
-    padding-bottom: 1rem; gap: 1rem;
+    padding-bottom: 1rem; gap: 1rem; border-bottom: 2px solid var(--line);
   }
   .compare__hlbl {
     font-size: var(--fs-label); letter-spacing: .14em;
     text-transform: uppercase; color: var(--muted); font-weight: 600;
   }
-  .compare__hlbl--p { color: var(--red); }
+  .compare__hlbl--p { color: var(--ink); font-weight: 700; }
+  .compare__hlbl-badge {
+    display: inline-block;
+    background: var(--red); color: #fff;
+    font-size: .45rem; letter-spacing: .1em; text-transform: uppercase;
+    font-weight: 700; padding: .2rem .5rem; line-height: 1;
+  }
   .compare__row { grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 1rem; align-items: center; }
   .compare__cells { display: contents; }
   .compare__cell { display: block; }
   .compare__cell-lbl { display: none; }
   .compare__val { font-size: .9375rem; }
-  .compare__row > *:nth-child(4) .compare__val,
-  .compare__cells > *:nth-child(3) .compare__val { font-weight: 700; }
+  .compare__cell--pulso { background: rgba(200,40,30,.05); padding: 1rem .75rem; margin-inline: -.75rem; }
+  .compare__cell--pulso .compare__val { font-size: 1rem; color: var(--red); }
 }
 
 /* OBJEÇÃO */
@@ -432,8 +455,24 @@ section { padding-block: var(--pad-y); }
 
 /* CTA */
 .cta { padding-block: var(--pad-y); }
-.cta__inner { display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); max-width: 24ch; }
-.cta__sub { color: var(--muted-dk); }
+.cta__inner {
+  display: flex; flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+@media (min-width: 760px) {
+  .cta__inner {
+    flex-direction: row; align-items: center;
+    justify-content: space-between; gap: clamp(3rem, 6vw, 7rem);
+  }
+}
+.cta__copy { display: flex; flex-direction: column; gap: 1rem; flex: 1; }
+.cta__h {
+  font-size: clamp(2rem, 4vw + .5rem, 3.5rem);
+  font-weight: 800; letter-spacing: -.035em; line-height: 1.05;
+  color: var(--bg); text-wrap: balance;
+}
+.cta__sub { color: var(--muted-dk); font-size: var(--fs-small); }
+.cta__action { flex-shrink: 0; }
 
 /* FOOTER */
 .foot {
@@ -464,6 +503,315 @@ section { padding-block: var(--pad-y); }
 
 /* ─── Focus ───────────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* ─── Phone / WhatsApp mockup ─────────────────────────────────── */
+.hero__mock-wrap {
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: var(--ink); position: relative;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+@media (min-width: 900px) {
+  .hero__mock-wrap { padding: 2.5rem 2.5rem; align-items: center; }
+}
+.mock-scene { position: relative; flex-shrink: 0; }
+
+/* Floating badge */
+.hero-float-badge {
+  position: absolute;
+  bottom: 1.75rem; left: -1.75rem;
+  background: var(--bg); color: var(--ink);
+  padding: .75rem 1rem;
+  display: flex; align-items: center; gap: .75rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.06);
+  animation: badge-float 4s ease-in-out infinite;
+  z-index: 10; pointer-events: none; white-space: nowrap;
+}
+@media (max-width: 899px) {
+  .hero-float-badge { left: auto; right: -0.5rem; bottom: 1rem; }
+}
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0) rotate(-.4deg); }
+  50%       { transform: translateY(-8px) rotate(.4deg); }
+}
+.hero-float-badge__icon {
+  width: 34px; height: 34px;
+  background: rgba(200,40,30,.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 1.05rem;
+}
+.hero-float-badge__val {
+  font-size: 1.25rem; font-weight: 800;
+  letter-spacing: -.04em; line-height: 1; color: var(--red);
+}
+.hero-float-badge__lbl {
+  font-size: .48rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); font-weight: 600; margin-top: .15rem;
+}
+
+/* Typing indicator */
+.mock-typing {
+  display: none; align-items: center; gap: 3px;
+  padding: .45rem .65rem;
+  background: #1A1A1A; border: 1px solid #242424;
+  border-radius: 10px; border-bottom-left-radius: 2px;
+  align-self: flex-start; opacity: 0;
+}
+.mock-typing span {
+  width: 4px; height: 4px; border-radius: 50%; background: #555;
+  animation: dot-pulse .8s ease infinite;
+}
+.mock-typing span:nth-child(2) { animation-delay: .15s; }
+.mock-typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(1); opacity: .4; }
+  50%       { transform: scale(1.35); opacity: 1; }
+}
+/* Chat elements start hidden; JS drives them in */
+.js-chat-el { opacity: 0; transform: translateY(6px); }
+.mock-phone {
+  width: clamp(200px, 68%, 264px);
+  background: #111;
+  border-radius: 32px;
+  border: 1px solid rgba(255,255,255,.07);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.6),
+    0 40px 100px rgba(0,0,0,.75),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  flex-shrink: 0;
+}
+.mock-wa-header {
+  background: #181818;
+  padding: .75rem 1rem;
+  display: flex; align-items: center; gap: .625rem;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.mock-wa-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.mock-wa-info { flex: 1; display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+.mock-wa-name { font-size: .6875rem; font-weight: 600; color: var(--bg); line-height: 1; letter-spacing: -.01em; }
+.mock-wa-sub  { font-size: .5rem; color: #25D366; line-height: 1; }
+.mock-wa-tag  {
+  font-size: .45rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--red);
+  border: 1px solid rgba(200,40,30,.3); padding: .2rem .4rem; line-height: 1;
+}
+.mock-wa-chat {
+  background: #0C0C0C;
+  padding: .875rem .75rem;
+  display: flex; flex-direction: column; gap: .45rem;
+}
+.mock-wa-date {
+  font-size: .45rem; letter-spacing: .1em; text-transform: uppercase;
+  color: #3A3A3A; text-align: center; padding-bottom: .2rem;
+}
+.mock-bubble {
+  max-width: 82%; padding: .45rem .6rem;
+  border-radius: 10px; font-size: .6rem; line-height: 1.45; position: relative;
+}
+.mock-bubble--out {
+  background: #005C4B; color: #e9fdf6;
+  align-self: flex-end; border-bottom-right-radius: 2px;
+}
+.mock-bubble--in {
+  background: #1e1e1e; color: #e0e0de;
+  align-self: flex-start; border-bottom-left-radius: 2px;
+  border: 1px solid #2a2a2a;
+}
+.mock-bubble--convert { background: #005C4B; color: #e9fdf6; }
+.mock-time {
+  display: block; font-size: .43rem; color: rgba(255,255,255,.4);
+  margin-top: .25rem; text-align: right;
+}
+.mock-bubble--in .mock-time { color: #555; text-align: left; }
+.mock-convert-tag {
+  display: flex; align-items: center; justify-content: center; gap: .4rem;
+  background: #25D366; color: #fff;
+  font-size: .48rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; padding: .4rem .75rem;
+  border-radius: 20px; align-self: center; margin-top: .25rem;
+}
+.mock-convert-dot { width: 5px; height: 5px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+
+/* Second floating badge */
+.hero-float-badge-2 {
+  position: absolute;
+  top: 1.5rem; right: -1.25rem;
+  background: var(--ink); color: var(--bg);
+  padding: .6rem .875rem;
+  display: flex; align-items: center; gap: .625rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06);
+  animation: badge-float 4s ease-in-out infinite;
+  animation-delay: 2s;
+  z-index: 10; pointer-events: none; white-space: nowrap;
+}
+.hero-float-badge-2__dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #25D366; flex-shrink: 0;
+  box-shadow: 0 0 6px #25D366;
+}
+.hero-float-badge-2__text {
+  display: flex; flex-direction: column; gap: .1rem;
+}
+.hero-float-badge-2__val {
+  font-size: .625rem; font-weight: 700; line-height: 1;
+  letter-spacing: -.01em; color: var(--bg);
+}
+.hero-float-badge-2__lbl {
+  font-size: .45rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted-dk); font-weight: 600;
+}
+@media (max-width: 899px) {
+  .hero-float-badge-2 { display: none; }
+}
+
+/* ─── Meta Ads results card ────────────────────────────────────── */
+.mock-ads-card {
+  background: #111; border: 1px solid #1E1E1E;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: flex; flex-direction: column; gap: 1rem;
+  height: 100%;
+}
+.mock-ads-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.mock-ads-platform {
+  font-size: .5625rem; letter-spacing: .1em;
+  text-transform: uppercase; color: #444; font-weight: 600;
+}
+.mock-ads-live {
+  font-size: .5rem; letter-spacing: .08em;
+  text-transform: uppercase; color: #25D366; font-weight: 700;
+}
+.mock-ads-big {
+  font-size: clamp(3rem, 7vw + 1rem, 5.5rem);
+  font-weight: 800; letter-spacing: -.05em; line-height: .9; color: var(--red);
+}
+.mock-ads-big-lbl {
+  font-size: .5625rem; letter-spacing: .1em; text-transform: uppercase;
+  color: #3A3A3A; font-weight: 600; margin-top: .5rem;
+}
+.mock-ads-sep { height: 1px; background: #1A1A1A; }
+.mock-ads-metrics {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: .75rem;
+}
+.mock-ads-metric { display: flex; flex-direction: column; gap: .3rem; padding-top: .75rem; border-top: 1px solid #1E1E1E; }
+.mock-ads-metric__val {
+  font-size: clamp(.875rem, 1.5vw + .5rem, 1.125rem);
+  font-weight: 700; letter-spacing: -.02em; color: var(--bg); line-height: 1;
+}
+.mock-ads-metric__lbl {
+  font-size: .45rem; letter-spacing: .1em;
+  text-transform: uppercase; color: #444; font-weight: 600;
+}
+
+/* ─── Grid background (linha fina, estilo papel milimetrado) ───── */
+.bg-chess {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Testimonials ─────────────────────────────────────────────── */
+.depo { padding-block: var(--pad-y); }
+.depo__head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.depo__grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+@media (min-width: 640px) { .depo__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .depo__grid { grid-template-columns: 1fr 1fr 1fr; } }
+.depo-card {
+  background: var(--bg); border: 1px solid var(--line);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.depo-card--featured {
+  background: var(--ink); border-color: var(--line-dk);
+}
+.depo-card__stars { display: flex; gap: .2rem; color: var(--red); font-size: .875rem; }
+.depo-card__text {
+  font-size: clamp(.9375rem, .5vw + .875rem, 1.0625rem);
+  font-weight: 500; line-height: 1.5; letter-spacing: -.01em;
+  color: var(--ink); flex: 1;
+}
+.depo-card--featured .depo-card__text { color: var(--bg); }
+.depo-card__author { display: flex; align-items: center; gap: .75rem; }
+.depo-card__avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--line); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .625rem; font-weight: 700; color: var(--muted);
+}
+.depo-card--featured .depo-card__avatar { background: var(--line-dk); color: var(--muted-dk); }
+.depo-card__name { font-size: var(--fs-small); font-weight: 600; color: var(--ink); line-height: 1.2; }
+.depo-card--featured .depo-card__name { color: var(--bg); }
+.depo-card__biz { font-size: .6875rem; color: var(--muted); }
+.depo-card--featured .depo-card__biz { color: var(--muted-dk); }
+
+/* ─── Phone mockup — enhanced ──────────────────────────────────── */
+.mock-phone__statusbar {
+  background: #0A0A0A;
+  padding: .5rem 1rem .35rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.mock-phone__time {
+  font-size: .5rem; font-weight: 600; color: #ccc; letter-spacing: .02em;
+}
+.mock-phone__icons { display: flex; align-items: center; gap: .3rem; }
+.mock-phone__icons svg { width: 9px; height: 9px; fill: #ccc; }
+
+/* ─── Founder section ──────────────────────────────────────────── */
+.founder { padding-block: var(--pad-y); }
+.founder__grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem); align-items: center;
+}
+@media (min-width: 760px) {
+  .founder__grid { grid-template-columns: 1fr 1.25fr; }
+  .founder__photo { order: 2; }
+  .founder__copy { order: 1; }
+}
+.founder__photo {
+  aspect-ratio: 4/3; overflow: hidden; position: relative;
+  background: #1A1A1A; border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06);
+}
+.founder__photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 55%);
+  pointer-events: none;
+}
+.founder__photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;
+}
+.founder__photo-ph {
+  width: 100%; height: 100%; min-height: 320px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .75rem;
+}
+.founder__photo-ph svg { width: 2.5rem; height: 2.5rem; }
+.founder__photo-ph span {
+  font-size: .5rem; letter-spacing: .14em;
+  text-transform: uppercase; font-weight: 600;
+}
+.founder__copy { display: flex; flex-direction: column; gap: clamp(1.25rem, 2.5vw, 2rem); }
+.founder__name { font-size: clamp(1.5rem, 3vw + .5rem, 2.5rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+.founder__role { font-size: var(--fs-small); color: var(--muted-dk); margin-top: .25rem; }
+.founder__bio { color: var(--muted-dk); line-height: 1.7; font-size: var(--fs-small); max-width: 50ch; }
+.founder__quote {
+  border-left: 2px solid var(--red);
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw + .8rem, 1.375rem);
+  font-weight: 500; line-height: 1.35; letter-spacing: -.015em;
+  font-style: normal; margin: 0;
+}
 </style>
 </head>
 <body>
@@ -494,7 +842,7 @@ section { padding-block: var(--pad-y); }
     <nav class="nav__links" aria-label="Principal">
       <a href="#metodo">O método</a>
       <a href="#cases">Cases</a>
-      <a href="#planos">Planos</a>
+      <a href="#faq">FAQ</a>
     </nav>
 
     <a href="/diagnostico" class="nav__cta">Diagnóstico gratuito <span aria-hidden="true">→</span></a>
@@ -546,13 +894,96 @@ section { padding-block: var(--pad-y); }
         </div>
       </div>
 
-      <!-- Imagem -->
-      <div class="ph hero__img">
-        <svg class="ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-          <circle cx="12" cy="13" r="4"/>
-        </svg>
-        <span class="ph__lbl">Foto do açougue</span>
+      <!-- Mockup CRM WhatsApp animado -->
+      <div class="hero__img hero__mock-wrap" aria-hidden="true">
+        <div class="mock-scene">
+
+          <!-- Badge flutuante esquerda -->
+          <div class="hero-float-badge">
+            <div class="hero-float-badge__icon">📈</div>
+            <div>
+              <div class="hero-float-badge__val">+38%</div>
+              <div class="hero-float-badge__lbl">pedidos · mês 1</div>
+            </div>
+          </div>
+
+          <!-- Badge flutuante direita -->
+          <div class="hero-float-badge-2">
+            <div class="hero-float-badge-2__dot"></div>
+            <div class="hero-float-badge-2__text">
+              <span class="hero-float-badge-2__val">CRM ativo</span>
+              <span class="hero-float-badge-2__lbl">automação 24h</span>
+            </div>
+          </div>
+
+          <div class="mock-phone">
+            <!-- Status bar -->
+            <div class="mock-phone__statusbar">
+              <span class="mock-phone__time">09:12</span>
+              <div class="mock-phone__icons">
+                <!-- signal -->
+                <svg viewBox="0 0 24 24"><rect x="1" y="15" width="4" height="9"/><rect x="7" y="10" width="4" height="14"/><rect x="13" y="5" width="4" height="19"/><rect x="19" y="1" width="4" height="23" opacity=".3"/></svg>
+                <!-- wifi -->
+                <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" stroke="#ccc" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                <!-- battery -->
+                <svg viewBox="0 0 24 24"><rect x="1" y="6" width="18" height="12" rx="2" stroke="#ccc" stroke-width="1.5" fill="none"/><path d="M20 10v4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round"/><rect x="3" y="8" width="12" height="8" rx="1" fill="#ccc"/></svg>
+              </div>
+            </div>
+
+            <!-- Header WhatsApp -->
+            <div class="mock-wa-header">
+              <div class="mock-wa-avatar">M</div>
+              <div class="mock-wa-info">
+                <span class="mock-wa-name">Marcos · cliente ativo</span>
+                <span class="mock-wa-sub">● online agora</span>
+              </div>
+              <span class="mock-wa-tag">CRM</span>
+            </div>
+
+            <!-- Chat animado -->
+            <div class="mock-wa-chat" id="js-chat">
+              <div class="mock-wa-date">hoje · automação Pulso</div>
+
+              <div class="mock-bubble mock-bubble--out js-chat-el" data-delay="0">
+                Oi Marcos 👋 semana passada você pediu a picanha — chegou no ponto?
+                <span class="mock-time">09:12 ✓✓</span>
+              </div>
+
+              <div class="mock-typing js-chat-el js-typing" data-delay="1100">
+                <span></span><span></span><span></span>
+              </div>
+
+              <div class="mock-bubble mock-bubble--in js-chat-el" data-delay="2200">
+                Chegou perfeita! Tô querendo mais
+                <span class="mock-time">09:17</span>
+              </div>
+
+              <div class="mock-typing js-chat-el js-typing" data-delay="3400">
+                <span></span><span></span><span></span>
+              </div>
+
+              <div class="mock-bubble mock-bubble--out js-chat-el" data-delay="4500">
+                Essa semana tem kit churrasco com 15% off — entrego hoje até 19h. 🥩
+                <span class="mock-time">09:17 ✓✓</span>
+              </div>
+
+              <div class="mock-typing js-chat-el js-typing" data-delay="5900">
+                <span></span><span></span><span></span>
+              </div>
+
+              <div class="mock-bubble mock-bubble--in mock-bubble--convert js-chat-el" data-delay="7000">
+                Quero! Manda o link 🔥
+                <span class="mock-time">09:18</span>
+              </div>
+
+              <div class="mock-convert-tag js-chat-el" data-delay="7800">
+                <span class="mock-convert-dot"></span>
+                pedido convertido via CRM
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -628,7 +1059,7 @@ section { padding-block: var(--pad-y); }
       <div class="prova__copy">
         <span class="label r">RESULTADO · CLIENTE ATIVO · 2026</span>
         <p class="prova__stat r" style="--d:60ms">+38%</p>
-        <p class="prova__stat-caption r" style="--d:100ms">de pedidos no primeiro mês — açougue de bairro com delivery · São Paulo</p>
+        <p class="prova__stat-caption r" style="--d:100ms">de pedidos no primeiro mês — açougue de bairro com delivery · Belo Horizonte</p>
 
         <blockquote class="prova__quote r" style="--d:180ms">
           <p class="prova__qtext">"A semana parou de ser problema."</p>
@@ -643,12 +1074,30 @@ section { padding-block: var(--pad-y); }
       </div>
 
       <div class="r" style="--d:120ms">
-        <div class="ph prova__img">
-          <svg class="ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-            <circle cx="12" cy="13" r="4"/>
-          </svg>
-          <span class="ph__lbl">Foto do açougue parceiro</span>
+        <div class="mock-ads-card" aria-hidden="true">
+          <div class="mock-ads-header">
+            <span class="mock-ads-platform">Meta Ads · campanha ativa</span>
+            <span class="mock-ads-live">● ao vivo</span>
+          </div>
+          <div>
+            <div class="mock-ads-big">+38%</div>
+            <div class="mock-ads-big-lbl">pedidos · mês 1 · açougue BH</div>
+          </div>
+          <div class="mock-ads-sep"></div>
+          <div class="mock-ads-metrics">
+            <div class="mock-ads-metric">
+              <span class="mock-ads-metric__val">47</span>
+              <span class="mock-ads-metric__lbl">conversões</span>
+            </div>
+            <div class="mock-ads-metric">
+              <span class="mock-ads-metric__val">R$8,40</span>
+              <span class="mock-ads-metric__lbl">custo/pedido</span>
+            </div>
+            <div class="mock-ads-metric">
+              <span class="mock-ads-metric__val">4,1×</span>
+              <span class="mock-ads-metric__lbl">ROAS</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -657,7 +1106,7 @@ section { padding-block: var(--pad-y); }
 </section>
 
 <!-- ═══════════════════════════════ STATS ════════════════════════ -->
-<section class="light">
+<section class="bg-chess">
   <div class="wrap">
     <div class="stats__lbl">
       <span class="label r">A PULSO EM NÚMEROS</span>
@@ -689,28 +1138,127 @@ section { padding-block: var(--pad-y); }
   </div>
 </section>
 
+<!-- ═══════════════════════════════ DEPOIMENTOS ══════════════════ -->
+<section class="depo light2">
+  <div class="wrap">
+    <div class="depo__head">
+      <span class="label r">O QUE DIZEM OS CLIENTES</span>
+    </div>
+    <div class="depo__grid">
+
+      <div class="depo-card depo-card--featured r">
+        <div class="depo-card__stars">★★★★★</div>
+        <p class="depo-card__text">"A semana parou de ser problema. Antes eu torcia pro fim de semana — agora a gente vende toda semana de boa."</p>
+        <div class="depo-card__author">
+          <div class="depo-card__avatar">RC</div>
+          <div>
+            <p class="depo-card__name">Proprietário · Açougue do Bairro</p>
+            <p class="depo-card__biz">Belo Horizonte · cliente ativo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="depo-card r" style="--d:80ms">
+        <div class="depo-card__stars">★★★★★</div>
+        <p class="depo-card__text">"Nunca pensei que WhatsApp podia ser vendedor. O cliente me chama sozinho agora."</p>
+        <div class="depo-card__author">
+          <div class="depo-card__avatar">MA</div>
+          <div>
+            <p class="depo-card__name">Proprietário · Cortes &amp; Cia</p>
+            <p class="depo-card__biz">Belo Horizonte · cliente ativo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="depo-card r" style="--d:160ms">
+        <div class="depo-card__stars">★★★★★</div>
+        <p class="depo-card__text">"O diagnóstico foi de graça e já me mostrou onde eu tava perdendo dinheiro. Fechei na mesma semana."</p>
+        <div class="depo-card__author">
+          <div class="depo-card__avatar">JS</div>
+          <div>
+            <p class="depo-card__name">Proprietário · Açougue São Jorge</p>
+            <p class="depo-card__biz">Belo Horizonte · cliente ativo</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FUNDADOR ═════════════════════ -->
+<section class="founder dark">
+  <div class="wrap">
+    <div class="founder__grid r">
+
+      <!-- Foto conjunta — arquivo founders.jpg na raiz do projeto -->
+      <div class="founder__photo">
+        <img src="https://i.postimg.cc/NF4QQ2TV/founders.png" alt="Raendell e Mattheus, co-fundadores da Pulso">
+      </div>
+
+      <!-- Copy -->
+      <div class="founder__copy">
+        <span class="label" style="color:var(--muted-dk)">QUEM FAZ</span>
+
+        <div>
+          <p class="founder__name" style="color:var(--bg)">Raendell &amp; Mattheus</p>
+          <p class="founder__role">Co-fundadores · Pulso · Belo Horizonte</p>
+        </div>
+
+        <p class="founder__bio">
+          <!-- Bio conjunta: de onde vieram, por que açougue, o que os une nessa causa. 3–4 linhas. -->
+          &nbsp;
+        </p>
+
+        <blockquote class="founder__quote" style="color:var(--bg)">
+          <!-- Frase que resume a filosofia de vocês dois. -->
+          &nbsp;
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════ MÉTODO ═══════════════════════ -->
 <section id="metodo" class="dark">
   <div class="wrap">
-    <div class="metodo__head">
-      <h2 class="h1 r" style="color:var(--bg)">Como a gente faz seu açougue vender toda semana.</h2>
-    </div>
-    <div class="steps">
-      <article class="step r">
-        <span class="step__num">01 · Tráfego Meta</span>
-        <h3 class="step__title">Kit certo pra pessoa certa, na hora certa.</h3>
-        <p class="step__body">Anúncio que alcança quem mora perto e já quer comprar — não só na sexta antes do churrasco.</p>
-      </article>
-      <article class="step r" style="--d:80ms">
-        <span class="step__num">02 · CRM Kommo</span>
-        <h3 class="step__title">Cliente que comprou uma vez volta toda semana.</h3>
-        <p class="step__body">WhatsApp que lembra, avisa e converte. Sem spam. Sem forçar. Com o que ele já gosta.</p>
-      </article>
-      <article class="step r" style="--d:160ms">
-        <span class="step__num">03 · Conteúdo</span>
-        <h3 class="step__title">Seu açougue aparece quando o cliente está com fome.</h3>
-        <p class="step__body">Foto que vende. Texto que chega direto. Nada de reels dançando.</p>
-      </article>
+    <div class="metodo__inner">
+
+      <!-- Heading fixo à esquerda -->
+      <div class="metodo__head">
+        <span class="label r" style="color:var(--muted-dk)">O MÉTODO</span>
+        <h2 class="h1 r" style="--d:60ms">Como a gente faz seu açougue vender toda semana.</h2>
+      </div>
+
+      <!-- Steps empilhados à direita -->
+      <div class="steps">
+        <article class="step r">
+          <span class="step__num">01</span>
+          <div class="step__content">
+            <p class="step__num" style="font-size:.6875rem; color:var(--muted-dk); margin-bottom:.25rem; letter-spacing:.06em">Tráfego Meta</p>
+            <h3 class="step__title">Kit certo pra pessoa certa, na hora certa.</h3>
+            <p class="step__body">Anúncio que alcança quem mora perto e já quer comprar — não só na sexta antes do churrasco.</p>
+          </div>
+        </article>
+        <article class="step r" style="--d:80ms">
+          <span class="step__num">02</span>
+          <div class="step__content">
+            <p class="step__num" style="font-size:.6875rem; color:var(--muted-dk); margin-bottom:.25rem; letter-spacing:.06em">CRM Kommo</p>
+            <h3 class="step__title">Cliente que comprou uma vez volta toda semana.</h3>
+            <p class="step__body">WhatsApp que lembra, avisa e converte. Sem spam. Sem forçar. Com o que ele já gosta.</p>
+          </div>
+        </article>
+        <article class="step r" style="--d:160ms">
+          <span class="step__num">03</span>
+          <div class="step__content">
+            <p class="step__num" style="font-size:.6875rem; color:var(--muted-dk); margin-bottom:.25rem; letter-spacing:.06em">Conteúdo</p>
+            <h3 class="step__title">Seu açougue aparece quando o cliente está com fome.</h3>
+            <p class="step__body">Foto que vende. Texto que chega direto. Nada de reels dançando.</p>
+          </div>
+        </article>
+      </div>
+
     </div>
   </div>
 </section>
@@ -725,7 +1273,7 @@ section { padding-block: var(--pad-y); }
         <span class="compare__hlbl"></span>
         <span class="compare__hlbl">Você sozinho</span>
         <span class="compare__hlbl">Agência tradicional</span>
-        <span class="compare__hlbl compare__hlbl--p">Pulso</span>
+        <span class="compare__hlbl compare__hlbl--p">Pulso <span class="compare__hlbl-badge">recomendado</span></span>
       </div>
 
       <div class="compare__row r">
@@ -733,7 +1281,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">—</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -741,7 +1289,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">às vezes</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -749,7 +1297,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">—</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -757,15 +1305,15 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">às vezes</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">genérico</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
         <span class="compare__crit">Encaixa na sua operação atual</span>
         <div class="compare__cells">
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">sim</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">quer mudar tudo</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
       <div class="compare__row r">
@@ -773,7 +1321,7 @@ section { padding-block: var(--pad-y); }
         <div class="compare__cells">
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Você sozinho</span><span class="compare__val">—</span></span>
           <span class="compare__cell compare__cell--n"><span class="compare__cell-lbl">Agência tradicional</span><span class="compare__val">depois de 3 meses</span></span>
-          <span class="compare__cell compare__cell--y"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">sim</span></span>
+          <span class="compare__cell compare__cell--y compare__cell--pulso"><span class="compare__cell-lbl">Pulso</span><span class="compare__val">✓ sim</span></span>
         </div>
       </div>
     </div>
@@ -812,7 +1360,7 @@ section { padding-block: var(--pad-y); }
         <p class="faq__ans">A gente faz o diagnóstico do mesmo jeito. Se o que sua agência faz tá funcionando, a gente fala. Se não tá, a gente mostra onde — e você decide.</p>
       </details>
       <details class="faq__item r">
-        <summary>Vocês atendem fora de São Paulo?<span class="faq__ico" aria-hidden="true">+</span></summary>
+        <summary>Vocês atendem fora de Belo Horizonte?<span class="faq__ico" aria-hidden="true">+</span></summary>
         <p class="faq__ans">Sim. O método é o mesmo em qualquer cidade onde tem açougue de bairro com delivery. Operamos remoto, com reunião semanal.</p>
       </details>
       <details class="faq__item r">
@@ -825,14 +1373,18 @@ section { padding-block: var(--pad-y); }
 
 <!-- ═══════════════════════════════ CTA FINAL ════════════════════ -->
 <section class="cta dark">
-  <div class="wrap cta__inner">
-    <h2 class="display r" style="color:var(--bg)">Sua quarta-feira ainda está fraca?</h2>
-    <p class="cta__sub r" style="--d:80ms">Diagnóstico gratuito de 30 minutos. Sem compromisso.</p>
-    <div class="r" style="--d:160ms">
-      <a href="/diagnostico" class="btn">
-        Fazer o diagnóstico gratuito
-        <span class="btn__arr" aria-hidden="true">→</span>
-      </a>
+  <div class="wrap">
+    <div class="cta__inner">
+      <div class="cta__copy">
+        <h2 class="cta__h r">Sua quarta-feira ainda está fraca?</h2>
+        <p class="cta__sub r" style="--d:60ms">Diagnóstico gratuito de 30 minutos. Sem compromisso.</p>
+      </div>
+      <div class="cta__action r" style="--d:120ms">
+        <a href="/diagnostico" class="btn">
+          Fazer o diagnóstico gratuito
+          <span class="btn__arr" aria-hidden="true">→</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -901,6 +1453,73 @@ section { padding-block: var(--pad-y); }
     entries.forEach(function(e){ if(e.isIntersecting){ run(e.target); cio.unobserve(e.target); } });
   },{threshold:.4});
   cs.forEach(function(c){ cio.observe(c); });
+})();
+
+/* Chat animation */
+(function(){
+  var chat = document.getElementById('js-chat');
+  if(!chat) return;
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var els = Array.from(chat.querySelectorAll('.js-chat-el'));
+
+  function reset(){
+    els.forEach(function(el){
+      el.style.transition = 'none';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(6px)';
+      if(el.classList.contains('js-typing')) el.style.display = 'none';
+    });
+  }
+
+  function show(el){
+    var typing = el.classList.contains('js-typing');
+    if(typing) el.style.display = 'flex';
+    requestAnimationFrame(function(){
+      el.style.transition = 'opacity .35s ease, transform .35s ease';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  }
+
+  function hide(el){
+    el.style.transition = 'opacity .2s ease';
+    el.style.opacity = '0';
+  }
+
+  var timers = [];
+
+  function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+
+  function runCycle(){
+    clearTimers();
+    reset();
+    var maxDelay = 0;
+    els.forEach(function(el){
+      var delay = parseInt(el.dataset.delay||'0', 10);
+      if(delay > maxDelay) maxDelay = delay;
+      var typing = el.classList.contains('js-typing');
+      timers.push(setTimeout(function(){
+        show(el);
+        if(typing) timers.push(setTimeout(function(){ hide(el); }, 1050));
+      }, delay + 400));
+    });
+    timers.push(setTimeout(function(){
+      els.forEach(function(el){
+        el.style.transition = 'opacity .7s ease';
+        el.style.opacity = '0';
+      });
+      timers.push(setTimeout(runCycle, 1000));
+    }, maxDelay + 400 + 3800));
+  }
+
+  if(reduce){
+    els.forEach(function(el){
+      el.style.opacity = '1'; el.style.transform = 'none';
+      if(el.classList.contains('js-typing')) el.style.display = 'none';
+    });
+    return;
+  }
+  setTimeout(runCycle, 800);
 })();
 </script>
 </body>
